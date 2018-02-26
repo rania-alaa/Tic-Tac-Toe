@@ -109,17 +109,17 @@
                   <Font size="25.0" />
                </font>
             </Text>
-            <Text layoutX="110.0" layoutY="564.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" wrappingWidth="124.13671875">
+            <Text layoutX="102.0" layoutY="562.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" wrappingWidth="137.9999876022339">
                <font>
                   <Font size="30.0" />
                </font>
             </Text>
-            <Text layoutX="275.0" layoutY="562.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Player2:">
+            <Text layoutX="232.0" layoutY="562.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Player2:">
                <font>
                   <Font size="25.0" />
                </font>
             </Text>
-            <Text layoutX="361.0" layoutY="564.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" wrappingWidth="124.13671875">
+            <Text layoutX="318.0" layoutY="561.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" wrappingWidth="172.1367230154574">
                <font>
                   <Font size="30.0" />
                </font>

@@ -226,27 +226,27 @@ public class FXMLgameBase extends AnchorPane {
         text.setWrappingWidth(145.13671875);
         text.setFont(new Font(25.0));
 
-        text0.setLayoutX(110.0);
-        text0.setLayoutY(564.0);
+        text0.setLayoutX(102.0);
+        text0.setLayoutY(562.0);
         text0.setStrokeType(javafx.scene.shape.StrokeType.OUTSIDE);
         text0.setStrokeWidth(0.0);
         text0.setText("Text");
-        text0.setWrappingWidth(124.13671875);
+        text0.setWrappingWidth(137.9999876022339);
         text0.setFont(new Font(30.0));
 
-        text1.setLayoutX(275.0);
+        text1.setLayoutX(232.0);
         text1.setLayoutY(562.0);
         text1.setStrokeType(javafx.scene.shape.StrokeType.OUTSIDE);
         text1.setStrokeWidth(0.0);
         text1.setText("Player2:");
         text1.setFont(new Font(25.0));
 
-        text2.setLayoutX(361.0);
-        text2.setLayoutY(564.0);
+        text2.setLayoutX(318.0);
+        text2.setLayoutY(561.0);
         text2.setStrokeType(javafx.scene.shape.StrokeType.OUTSIDE);
         text2.setStrokeWidth(0.0);
         text2.setText("Text");
-        text2.setWrappingWidth(124.13671875);
+        text2.setWrappingWidth(172.1367230154574);
         text2.setFont(new Font(30.0));
 
         button8.setLayoutX(14.0);
