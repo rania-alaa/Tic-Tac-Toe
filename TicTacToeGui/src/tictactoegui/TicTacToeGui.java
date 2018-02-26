@@ -56,6 +56,8 @@ public class TicTacToeGui extends Application {
         Scene modescene = new Scene(modepage, 700, 600);
         Scene playerscene = new Scene(playerpage, 700, 600);
         Scene gamescene = new Scene(g, 700, 600);
+        modepage.label0.setGraphic(logo());
+        playerpage.label0.setGraphic(logo());
         //singlebutton
         modepage.button.addEventHandler(ActionEvent.ACTION, (ActionEvent event) -> {
             g.text2.setText("Computer");
@@ -75,33 +77,34 @@ public class TicTacToeGui extends Application {
         }); 
         g.text0.setText("rania");
         initializeMovesArr();
-       
         Msg.setTitle("Winner Message");
         Msg.setHeaderText(null);
-      
-       
         putEvent(g);
         primaryStage.setTitle("TicTacToe");
         primaryStage.setScene(modescene);
         primaryStage.show();
+    }
+    private ImageView logo(){
+        Image logo = new Image(getClass().getResourceAsStream("image/logo.gif"));
+        ImageView view = new ImageView(logo);
+        view.setFitHeight(110);
+        view.setFitWidth(600);
+        return view;
     }
     private ImageView Casexoro (){
         ImageView view;
          if("x".equals(lastmove))
             { 
                 lastmove="o";
-              
                 view=Drawo();
             }
             else {
-                lastmove="x";
-                
+                lastmove="x";   
                 view=Drawx();
             }
         return view;
     }
-    private ImageView Drawx(){
-        
+    private ImageView Drawx(){   
         Image imgx = new Image(getClass().getResourceAsStream("image/x.png"));
         ImageView viewx = new ImageView(imgx);
         viewx.setFitHeight(110);

@@ -3,33 +3,27 @@ package tictactoegui;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.StackPane;
 import javafx.scene.text.Font;
 
 public class FXMLmodeBase extends AnchorPane {
 
-    protected final StackPane stackPane;
     protected final Label label;
     protected final Button button;
     protected final Button button0;
     protected final Button button1;
+    protected final Label label0;
 
     public FXMLmodeBase() {
 
-        stackPane = new StackPane();
         label = new Label();
         button = new Button();
         button0 = new Button();
         button1 = new Button();
+        label0 = new Label();
 
         setId("AnchorPane");
         setPrefHeight(600.0);
         setPrefWidth(700.0);
-
-        stackPane.setLayoutX(9.0);
-        stackPane.setLayoutY(9.0);
-        stackPane.setPrefHeight(177.0);
-        stackPane.setPrefWidth(700.0);
 
         label.setLayoutX(257.0);
         label.setLayoutY(205.0);
@@ -58,11 +52,17 @@ public class FXMLmodeBase extends AnchorPane {
         button1.setText("OnLine");
         button1.setFont(new Font(18.0));
 
-        getChildren().add(stackPane);
+        label0.setLayoutX(45.0);
+        label0.setLayoutY(-1.0);
+        label0.setPrefHeight(200.0);
+        label0.setPrefWidth(655.0);
+        label0.setTextAlignment(javafx.scene.text.TextAlignment.CENTER);
+
         getChildren().add(label);
         getChildren().add(button);
         getChildren().add(button0);
         getChildren().add(button1);
+        getChildren().add(label0);
 
     }
 }
