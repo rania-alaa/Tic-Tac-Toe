@@ -42,7 +42,9 @@ public class FXMLgameBase extends AnchorPane {
     protected final Text text0;
     protected final Text text1;
     protected final Text text2;
+    protected final Pane pane8;
     protected final Button button8;
+    protected final Pane pane9;
     protected final Button button9;
     protected final Button button10;
 
@@ -75,12 +77,15 @@ public class FXMLgameBase extends AnchorPane {
         button6 = new Button();
         pane7 = new Pane();
         button7 = new Button();
+        pane8 = new Pane();
+        button8 = new Button();
+        pane9 = new Pane();
+        button9 = new Button();
         text = new Text();
         text0 = new Text();
         text1 = new Text();
         text2 = new Text();
-        button8 = new Button();
-        button9 = new Button();
+
         button10 = new Button();
 
         setMaxHeight(USE_PREF_SIZE);
@@ -254,7 +259,7 @@ public class FXMLgameBase extends AnchorPane {
         button8.setMnemonicParsing(false);
         button8.setPrefHeight(25.0);
         button8.setPrefWidth(138.0);
-        button8.setText("Menu");
+        button8.setText("Play With X");
         button8.setFont(new Font(18.0));
 
         button9.setLayoutX(14.0);
@@ -262,7 +267,7 @@ public class FXMLgameBase extends AnchorPane {
         button9.setMnemonicParsing(false);
         button9.setPrefHeight(25.0);
         button9.setPrefWidth(138.0);
-        button9.setText("Reset");
+        button9.setText("Play With O");
         button9.setFont(new Font(18.0));
 
         button10.setLayoutX(14.0);

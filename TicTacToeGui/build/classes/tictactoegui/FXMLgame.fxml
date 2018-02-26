@@ -126,12 +126,12 @@
             </Text>
          </children>
       </AnchorPane>
-      <Button layoutX="14.0" layoutY="117.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="138.0" text="Menu">
+      <Button fx:id="str" layoutX="14.0" layoutY="117.0" mnemonicParsing="false" onMouseClicked="#ChoosePattern" prefHeight="25.0" prefWidth="138.0" text="play with X">
          <font>
             <Font size="18.0" />
          </font>
       </Button>
-      <Button layoutX="14.0" layoutY="226.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="138.0" text="Reset">
+      <Button layoutX="14.0" layoutY="226.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="138.0" text="Play with O">
          <font>
             <Font size="18.0" />
          </font>

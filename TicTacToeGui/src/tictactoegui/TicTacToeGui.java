@@ -31,6 +31,8 @@ import javafx.stage.Stage;
 public class TicTacToeGui extends Application {
     
     String lastmove= new String("x");//
+    //String playerOne = new String("X");
+    //String playerTwo = new String("O");
     @Override
     public void start(Stage primaryStage) throws MalformedURLException {  
         FXMLgameBase g = new FXMLgameBase(); 
@@ -42,6 +44,21 @@ public class TicTacToeGui extends Application {
         primaryStage.setScene(scene);
         primaryStage.show();
     }
+
+//        private ImageView ChoosePattern(){
+//        ImageView view = null;
+//            if("X".equals(playerOne))
+//            {
+//                playerTwo = "O";
+//                view =Drawo();
+//            }
+//            else if("O".equals(playerOne))
+//            {
+//                playerTwo = "X";
+//                view =Drawx();
+//            }
+//        return view;
+//    }
     private ImageView Casexoro (){
         ImageView view;
          if("x".equals(lastmove))
@@ -70,38 +87,70 @@ public class TicTacToeGui extends Application {
         viewo.setFitWidth(90);
         return viewo;
     }
+ 
     private void putEvent(FXMLgameBase g){
+        int clicked[] = new int[9];
+        
         g.button.addEventHandler(ActionEvent.ACTION, (ActionEvent event) -> {
+           // if(clicked[0]==0)
            g.button.setGraphic(Casexoro());
            g.button.setDisable(true);
             
         });
+        
         g.button0.addEventHandler(ActionEvent.ACTION, (ActionEvent event) -> {
                 g.button0.setGraphic(Casexoro());
-                 g.button.setDisable(true);
+                g.button0.setDisable(true);
         });
+        
         g.button1.addEventHandler(ActionEvent.ACTION, (ActionEvent event) -> {
                 g.button1.setGraphic(Casexoro());
+                g.button1.setDisable(true);
         });
+        
         g.button2.addEventHandler(ActionEvent.ACTION, (ActionEvent event) -> {
                 g.button2.setGraphic(Casexoro());
+                g.button2.setDisable(true);
         });
+        
         g.button3.addEventHandler(ActionEvent.ACTION, (ActionEvent event) -> {
                 g.button3.setGraphic(Casexoro());
+                g.button3.setDisable(true);
         });
+        
         g.button4.addEventHandler(ActionEvent.ACTION, (ActionEvent event) -> {
                 g.button4.setGraphic(Casexoro());
+                g.button4.setDisable(true);
         });
+        
         g.button5.addEventHandler(ActionEvent.ACTION, (ActionEvent event) -> {
                 g.button5.setGraphic(Casexoro());
+                g.button5.setDisable(true);
         });
-         g.button6.addEventHandler(ActionEvent.ACTION, (ActionEvent event) -> {
+        
+        g.button6.addEventHandler(ActionEvent.ACTION, (ActionEvent event) -> {
                 g.button6.setGraphic(Casexoro());
+                g.button6.setDisable(true);
         });
-          g.button7.addEventHandler(ActionEvent.ACTION, (ActionEvent event) -> {
+        
+        g.button7.addEventHandler(ActionEvent.ACTION, (ActionEvent event) -> {
                 g.button7.setGraphic(Casexoro());
+                g.button7.setDisable(true);
+        });
+        
+        g.button8.addEventHandler(ActionEvent.ACTION, (ActionEvent event) -> {
+                lastmove ="o";
+                g.button9.setDisable(true);
+        });
+       
+        g.button9.addEventHandler(ActionEvent.ACTION, (ActionEvent event) -> {
+               lastmove="x";
+               g.button8.setDisable(true);
         });
     }
+    
+//     public void  www(){  FXMLgameBase g = null;
+//putEvent(g);}
     /**
      * @param args the command line arguments
      */
