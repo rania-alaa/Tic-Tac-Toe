@@ -441,8 +441,7 @@ public class TicTacToeGui extends Application {
                lastmove="x";
                g.button8.setDisable(true);
         });
-}
-    }
+ }
     
     /**
      * @param args the command line arguments
