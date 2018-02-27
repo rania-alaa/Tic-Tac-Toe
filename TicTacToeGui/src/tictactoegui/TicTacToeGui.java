@@ -32,8 +32,9 @@ import javafx.stage.Stage;
  * @author rania
  */
 public class TicTacToeGui extends Application {
-    
     String lastmove= new String("x");//
+    //String playerOne = new String("X");
+    //String playerTwo = new String("O");
     String[] allMoves=new String[9];
     Alert Msg=new Alert(AlertType.INFORMATION);
     
@@ -91,6 +92,21 @@ public class TicTacToeGui extends Application {
         view.setFitWidth(600);
         return view;
     }
+    
+//        private ImageView ChoosePattern(){
+//        ImageView view = null;
+//            if("X".equals(playerOne))
+//            {
+//                playerTwo = "O";
+//                view =Drawo();
+//            }
+//            else if("O".equals(playerOne))
+//            {
+//                playerTwo = "X";
+//                view =Drawx();
+//            }
+//        return view;
+//    }
     private ImageView Casexoro (){
         ImageView view;
          if("x".equals(lastmove))
@@ -416,6 +432,16 @@ public class TicTacToeGui extends Application {
               }
               pressed7=true;
         });
+	 g.button8.addEventHandler(ActionEvent.ACTION, (ActionEvent event) -> {
+                lastmove ="o";
+                g.button9.setDisable(true);
+        });
+       
+        g.button9.addEventHandler(ActionEvent.ACTION, (ActionEvent event) -> {
+               lastmove="x";
+               g.button8.setDisable(true);
+        });
+}
     }
     
     /**
