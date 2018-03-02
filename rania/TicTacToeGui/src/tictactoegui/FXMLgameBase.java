@@ -102,7 +102,7 @@ public class FXMLgameBase extends AnchorPane {
         gridPane.setLayoutX(-1.0);
         gridPane.setLayoutY(-1.0);
         gridPane.setPrefHeight(521.0);
-        gridPane.setPrefWidth(494.0);
+        gridPane.setPrefWidth(500.0);
 
         columnConstraints.setHgrow(javafx.scene.layout.Priority.SOMETIMES);
         columnConstraints.setMinWidth(10.0);
@@ -132,9 +132,11 @@ public class FXMLgameBase extends AnchorPane {
         pane.setPrefWidth(200.0);
 
         button.setLayoutX(1.0);
+        button.setLayoutY(-1.0);
         button.setMnemonicParsing(false);
         button.setPrefHeight(176.0);
         button.setPrefWidth(164.0);
+        button.getStyleClass().add("grid");
         button.setFont(new Font(81.0));
 
         GridPane.setColumnIndex(pane0, 1);
@@ -145,6 +147,7 @@ public class FXMLgameBase extends AnchorPane {
         button0.setMnemonicParsing(false);
         button0.setPrefHeight(176.0);
         button0.setPrefWidth(164.0);
+        button0.getStyleClass().add("grid");
         button0.setFont(new Font(81.0));
 
         GridPane.setColumnIndex(pane1, 2);
@@ -155,15 +158,18 @@ public class FXMLgameBase extends AnchorPane {
         button1.setMnemonicParsing(false);
         button1.setPrefHeight(176.0);
         button1.setPrefWidth(164.0);
+        button1.getStyleClass().add("grid");
         button1.setFont(new Font(81.0));
 
         GridPane.setRowIndex(pane2, 1);
         pane2.setPrefHeight(200.0);
         pane2.setPrefWidth(200.0);
 
+        button2.setLayoutY(-1.0);
         button2.setMnemonicParsing(false);
         button2.setPrefHeight(176.0);
-        button2.setPrefWidth(164.0);
+        button2.setPrefWidth(165.0);
+        button2.getStyleClass().add("grid");
         button2.setFont(new Font(81.0));
 
         GridPane.setColumnIndex(pane3, 1);
@@ -176,6 +182,7 @@ public class FXMLgameBase extends AnchorPane {
         button3.setMnemonicParsing(false);
         button3.setPrefHeight(176.0);
         button3.setPrefWidth(164.0);
+        button3.getStyleClass().add("grid");
         button3.setFont(new Font(81.0));
 
         GridPane.setColumnIndex(pane4, 2);
@@ -186,15 +193,18 @@ public class FXMLgameBase extends AnchorPane {
         button4.setMnemonicParsing(false);
         button4.setPrefHeight(176.0);
         button4.setPrefWidth(164.0);
+        button4.getStyleClass().add("grid");
         button4.setFont(new Font(81.0));
 
         GridPane.setRowIndex(pane5, 2);
         pane5.setPrefHeight(200.0);
         pane5.setPrefWidth(200.0);
 
+        button5.setLayoutY(-1.0);
         button5.setMnemonicParsing(false);
         button5.setPrefHeight(176.0);
-        button5.setPrefWidth(164.0);
+        button5.setPrefWidth(165.0);
+        button5.getStyleClass().add("grid");
         button5.setFont(new Font(81.0));
 
         GridPane.setColumnIndex(pane6, 1);
@@ -202,9 +212,12 @@ public class FXMLgameBase extends AnchorPane {
         pane6.setPrefHeight(200.0);
         pane6.setPrefWidth(200.0);
 
+        button6.setLayoutX(1.0);
+        button6.setLayoutY(-1.0);
         button6.setMnemonicParsing(false);
-        button6.setPrefHeight(173.0);
-        button6.setPrefWidth(165.0);
+        button6.setPrefHeight(176.0);
+        button6.setPrefWidth(164.0);
+        button6.getStyleClass().add("grid");
         button6.setFont(new Font(81.0));
 
         GridPane.setColumnIndex(pane7, 2);
@@ -216,62 +229,76 @@ public class FXMLgameBase extends AnchorPane {
         button7.setMnemonicParsing(false);
         button7.setPrefHeight(176.0);
         button7.setPrefWidth(164.0);
+        button7.getStyleClass().add("grid");
         button7.setFont(new Font(81.0));
 
+        text.setFill(javafx.scene.paint.Color.valueOf("#cc0808"));
         text.setLayoutX(14.0);
-        text.setLayoutY(562.0);
+        text.setLayoutY(563.0);
         text.setStrokeType(javafx.scene.shape.StrokeType.OUTSIDE);
         text.setStrokeWidth(0.0);
         text.setText("Player1:");
-        text.setWrappingWidth(145.13671875);
-        text.setFont(new Font(25.0));
+        text.setWrappingWidth(92.13671875);
+        text.setFont(new Font(24.0));
 
-        text0.setLayoutX(110.0);
-        text0.setLayoutY(564.0);
+        text0.setFill(javafx.scene.paint.Color.valueOf("#5178da"));
+        text0.setLayoutX(106.0);
+        text0.setLayoutY(566.0);
         text0.setStrokeType(javafx.scene.shape.StrokeType.OUTSIDE);
         text0.setStrokeWidth(0.0);
         text0.setText("Text");
-        text0.setWrappingWidth(124.13671875);
-        text0.setFont(new Font(30.0));
+        text0.setWrappingWidth(137.9999876022339);
+        text0.setFont(new Font("System Bold", 30.0));
 
-        text1.setLayoutX(275.0);
+        text1.setFill(javafx.scene.paint.Color.valueOf("#cc0808"));
+        text1.setLayoutX(250.0);
         text1.setLayoutY(562.0);
         text1.setStrokeType(javafx.scene.shape.StrokeType.OUTSIDE);
         text1.setStrokeWidth(0.0);
         text1.setText("Player2:");
-        text1.setFont(new Font(25.0));
+        text1.setFont(new Font(24.0));
 
-        text2.setLayoutX(361.0);
+        text2.setFill(javafx.scene.paint.Color.valueOf("#5178da"));
+        text2.setLayoutX(340.0);
         text2.setLayoutY(564.0);
         text2.setStrokeType(javafx.scene.shape.StrokeType.OUTSIDE);
         text2.setStrokeWidth(0.0);
         text2.setText("Text");
-        text2.setWrappingWidth(124.13671875);
-        text2.setFont(new Font(30.0));
+        text2.setWrappingWidth(145.1367230154574);
+        text2.setFont(new Font("System Bold", 30.0));
 
         button8.setLayoutX(14.0);
         button8.setLayoutY(117.0);
         button8.setMnemonicParsing(false);
         button8.setPrefHeight(25.0);
         button8.setPrefWidth(138.0);
+        button8.getStyleClass().add("rich-blue");
+        button8.getStylesheets().add("/tictactoegui/css/modepagecss.css");
         button8.setText("Menu");
-        button8.setFont(new Font(18.0));
+        button8.setTextFill(javafx.scene.paint.Color.valueOf("#cc0808"));
+        button8.setFont(new Font("System Bold", 24.0));
 
         button9.setLayoutX(14.0);
         button9.setLayoutY(226.0);
         button9.setMnemonicParsing(false);
         button9.setPrefHeight(25.0);
         button9.setPrefWidth(138.0);
+        button9.getStyleClass().add("rich-blue");
+        button9.getStylesheets().add("/tictactoegui/css/modepagecss.css");
         button9.setText("Reset");
-        button9.setFont(new Font(18.0));
+        button9.setTextFill(javafx.scene.paint.Color.valueOf("#cc0808"));
+        button9.setFont(new Font("System Bold", 24.0));
 
         button10.setLayoutX(14.0);
         button10.setLayoutY(337.0);
         button10.setMnemonicParsing(false);
         button10.setPrefHeight(25.0);
         button10.setPrefWidth(138.0);
+        button10.getStyleClass().add("rich-blue");
+        button10.getStylesheets().add("/tictactoegui/css/modepagecss.css");
         button10.setText("Save");
-        button10.setFont(new Font(18.0));
+        button10.setTextFill(javafx.scene.paint.Color.valueOf("#cc0808"));
+        button10.setFont(new Font("System Bold", 24.0));
 
         gridPane.getColumnConstraints().add(columnConstraints);
         gridPane.getColumnConstraints().add(columnConstraints0);
