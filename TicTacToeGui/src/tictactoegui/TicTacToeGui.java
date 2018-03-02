@@ -25,6 +25,7 @@ import javafx.scene.text.TextAlignment;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Dialog;
+import javafx.scene.effect.DropShadow;
 import javafx.stage.Stage;
 
 /**
@@ -32,7 +33,7 @@ import javafx.stage.Stage;
  * @author rania
  */
 public class TicTacToeGui extends Application {
-    String lastmove= new String("x");//
+    String lastmove= "x";//
     //String playerOne = new String("X");
     //String playerTwo = new String("O");
     String[] allMoves=new String[9];
@@ -43,14 +44,37 @@ public class TicTacToeGui extends Application {
   
     @Override
     public void start(Stage primaryStage) throws MalformedURLException { 
+        FXMLplayer1Base player1page = new FXMLplayer1Base();
+        FXMLsymbolBase symbolpage = new FXMLsymbolBase();
         FXMLmodeBase modepage = new FXMLmodeBase();
         FXMLplayerBase playerpage = new FXMLplayerBase();
         FXMLgameBase g = new FXMLgameBase();
+        Scene player1scene = new Scene(player1page, 700, 600);
+        Scene symbolscene = new Scene(symbolpage,700,600);
         Scene modescene = new Scene(modepage, 700, 600);
         Scene playerscene = new Scene(playerpage, 700, 600);
         Scene gamescene = new Scene(g, 700, 600);
+        g.gridPane.setEffect(new DropShadow(15, 0, 15, Color.GREY));
+        symbolpage.label.setGraphic(logo());
+        player1page.label.setGraphic(logo());
         modepage.label0.setGraphic(logo());
         playerpage.label0.setGraphic(logo());
+         //x button in symbolscene
+        symbolpage.button.addEventHandler(ActionEvent.ACTION, (ActionEvent event) -> {
+            lastmove ="o";
+            primaryStage.setScene(modescene);
+        });
+        //x button in symbolscene
+        symbolpage.button0.addEventHandler(ActionEvent.ACTION, (ActionEvent event) -> {
+            lastmove ="x";
+            primaryStage.setScene(modescene);
+        });
+        
+        //next buton in  player1page
+        player1page.button.addEventHandler(ActionEvent.ACTION, (ActionEvent event) -> {
+            primaryStage.setScene(symbolscene);
+        });
+        
         //singlebutton
         modepage.button.addEventHandler(ActionEvent.ACTION, (ActionEvent event) -> {
             g.text2.setText("Computer");
@@ -60,11 +84,18 @@ public class TicTacToeGui extends Application {
         modepage.button0.addEventHandler(ActionEvent.ACTION, (ActionEvent event) -> {
             primaryStage.setScene(playerscene);
         });
-        //nextbutton
+        
+        //nextbutton playerpage
         playerpage.button.addEventHandler(ActionEvent.ACTION, (ActionEvent event) -> {
-            g.text2.setText(playerpage.textField.getText());
-            primaryStage.setScene(gamescene);
+            if(playerpage.textField.getText().isEmpty())
+            {}
+            else{
+                g.text2.setText(playerpage.textField.getText());
+                primaryStage.setScene(gamescene);
+            }
         }); 
+        
+        //menubutton gamepage
         g.button8.addEventHandler(ActionEvent.ACTION, (ActionEvent event) -> {
             primaryStage.setScene(modescene);
         }); 
@@ -75,11 +106,11 @@ public class TicTacToeGui extends Application {
         Msg.setHeaderText(null);
         putEvent(g);
         primaryStage.setTitle("TicTacToe");
-        primaryStage.setScene(modescene);
+        primaryStage.setScene(player1scene);
         primaryStage.show();
     }
     private ImageView logo(){
-        Image logo = new Image(getClass().getResourceAsStream("image/logo.gif"));
+        Image logo = new Image(getClass().getResourceAsStream("image/logo3.png"));
         ImageView view = new ImageView(logo);
         view.setFitHeight(110);
         view.setFitWidth(600);
@@ -230,7 +261,6 @@ public class TicTacToeGui extends Application {
         return completed;
    }
    private void check() {
-
         System.out.println(checkWinner());
         if (checkWinner()) {
             Msg.setContentText(lastmove + " Wins");
@@ -239,18 +269,14 @@ public class TicTacToeGui extends Application {
             {
                 pressed[i]=true;
             }
-
         } else {
             if (checkNoWinner()) {
                 Msg.setContentText("NoWinner");
                 Msg.showAndWait();
-
             }
         }
-
     }
-    private void putEvent(FXMLgameBase g){
-             
+    private void putEvent(FXMLgameBase g){    
         g.button.addEventHandler(ActionEvent.ACTION, (ActionEvent event) -> {
             if(pressed[0]==false)
             {
@@ -332,15 +358,6 @@ public class TicTacToeGui extends Application {
                 check();
               }
               pressed[8]=true;
-        });
-	 g.button8.addEventHandler(ActionEvent.ACTION, (ActionEvent event) -> {
-                lastmove ="o";
-                g.button9.setDisable(true);
-        });
-       
-        g.button9.addEventHandler(ActionEvent.ACTION, (ActionEvent event) -> {
-               lastmove="x";
-               g.button8.setDisable(true);
         });
  }
     
