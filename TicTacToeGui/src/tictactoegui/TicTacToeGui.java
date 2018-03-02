@@ -26,7 +26,10 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Dialog;
 import javafx.scene.effect.DropShadow;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
 import javafx.stage.Stage;
+import javafx.util.Duration;
 
 /**
  *
@@ -41,7 +44,10 @@ public class TicTacToeGui extends Application {
     
     boolean completed=false;
     boolean[] pressed = new boolean[9];
-  
+    boolean sound=true;
+    final java.net.URL resource = getClass().getResource("music/soundbg.mp3");
+    final Media media = new Media(resource.toString());
+    final MediaPlayer mediaplayer = new MediaPlayer(media);
     @Override
     public void start(Stage primaryStage) throws MalformedURLException { 
         FXMLplayer1Base player1page = new FXMLplayer1Base();
@@ -61,27 +67,32 @@ public class TicTacToeGui extends Application {
         playerpage.label0.setGraphic(logo());
          //x button in symbolscene
         symbolpage.button.addEventHandler(ActionEvent.ACTION, (ActionEvent event) -> {
+             clickOrSound(0);
             lastmove ="o";
             primaryStage.setScene(modescene);
         });
         //x button in symbolscene
         symbolpage.button0.addEventHandler(ActionEvent.ACTION, (ActionEvent event) -> {
+             clickOrSound(0);
             lastmove ="x";
             primaryStage.setScene(modescene);
         });
         
         //next buton in  player1page
         player1page.button.addEventHandler(ActionEvent.ACTION, (ActionEvent event) -> {
+             clickOrSound(0);
             primaryStage.setScene(symbolscene);
         });
         
         //singlebutton
         modepage.button.addEventHandler(ActionEvent.ACTION, (ActionEvent event) -> {
+            clickOrSound(0);
             g.text2.setText("Computer");
             primaryStage.setScene(gamescene);
         });
         //2 player button
         modepage.button0.addEventHandler(ActionEvent.ACTION, (ActionEvent event) -> {
+            clickOrSound(0);
             primaryStage.setScene(playerscene);
         });
         
@@ -93,10 +104,12 @@ public class TicTacToeGui extends Application {
                 g.text2.setText(playerpage.textField.getText());
                 primaryStage.setScene(gamescene);
             }
+            clickOrSound(0);
         }); 
         
         //menubutton gamepage
         g.button8.addEventHandler(ActionEvent.ACTION, (ActionEvent event) -> {
+            clickOrSound(0);
             primaryStage.setScene(modescene);
         }); 
         g.text0.setText("rania");
@@ -104,10 +117,40 @@ public class TicTacToeGui extends Application {
         initializePressedArr();
         Msg.setTitle("Winner Message");
         Msg.setHeaderText(null);
+        clickOrSound(1);
         putEvent(g);
         primaryStage.setTitle("TicTacToe");
         primaryStage.setScene(player1scene);
         primaryStage.show();
+    }
+     private void clickOrSound(int num){
+        if(num == 0){
+            final java.net.URL resource = getClass().getResource("music/Click2.mp3"); 
+            final Media media = new Media(resource.toString());
+            final MediaPlayer mediaPlayer = new MediaPlayer(media);
+            mediaPlayer.play();
+        }
+        else if(num == 1){
+            mediaplayer.setOnEndOfMedia(() -> {
+                mediaplayer .seek(Duration.ZERO);
+            });
+            mediaplayer.play(); 
+        }
+    }    
+    private void playSound(){
+        if(sound==true){
+            mediaplayer.play();
+        }
+        else{
+            mediaplayer.pause();
+        }
+    }
+    private ImageView drawSoundLogo(String name){
+        Image sound = new Image(getClass().getResourceAsStream(name));
+        ImageView view = new ImageView(sound);
+        view.setFitHeight(50);
+        view.setFitWidth(50);
+        return view;
     }
     private ImageView logo(){
         Image logo = new Image(getClass().getResourceAsStream("image/logo3.png"));
@@ -350,16 +393,31 @@ public class TicTacToeGui extends Application {
             }
             pressed[7]=true;
         });
-          g.button7.addEventHandler(ActionEvent.ACTION, (ActionEvent event) -> {
-              if(pressed[8]==false)
-              {
+        g.button7.addEventHandler(ActionEvent.ACTION, (ActionEvent event) -> {
+            if(pressed[8]==false)
+            {
                 g.button7.setGraphic(Casexoro());
                 allMoves[8]=lastmove;
                 check();
-              }
-              pressed[8]=true;
+            }
+            pressed[8]=true;
         });
- }
+        g.button11.setGraphic(drawSoundLogo("image/sound.png"));
+        g.button11.addEventHandler(ActionEvent.ACTION, (ActionEvent event) -> {
+           if(sound==true){
+               clickOrSound(0);
+               g.button11.setGraphic(drawSoundLogo("image/nosound.png"));
+               sound=false;
+               playSound();
+           }
+           else{
+               clickOrSound(0);
+               g.button11.setGraphic(drawSoundLogo("image/sound.png"));
+               sound=true;
+               playSound();
+           }
+        });
+    }
     
     /**
      * @param args the command line arguments
@@ -368,5 +426,4 @@ public class TicTacToeGui extends Application {
         launch(args);
       
     }
-    
 }

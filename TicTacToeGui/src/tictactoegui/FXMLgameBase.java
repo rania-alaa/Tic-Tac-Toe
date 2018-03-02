@@ -1,6 +1,7 @@
 package tictactoegui;
 
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.ColumnConstraints;
 import javafx.scene.layout.GridPane;
@@ -45,6 +46,8 @@ public class FXMLgameBase extends AnchorPane {
     protected final Button button8;
     protected final Button button9;
     protected final Button button10;
+    protected final Label label;
+    protected final Button button11;
 
     public FXMLgameBase() {
 
@@ -82,6 +85,8 @@ public class FXMLgameBase extends AnchorPane {
         button8 = new Button();
         button9 = new Button();
         button10 = new Button();
+        label = new Label();
+        button11 = new Button();
 
         setMaxHeight(USE_PREF_SIZE);
         setMaxWidth(USE_PREF_SIZE);
@@ -300,6 +305,15 @@ public class FXMLgameBase extends AnchorPane {
         button10.setTextFill(javafx.scene.paint.Color.valueOf("#cc0808"));
         button10.setFont(new Font("System Bold", 24.0));
 
+        label.setLayoutX(28.0);
+        label.setLayoutY(36.0);
+
+        button11.setLayoutX(20.0);
+        button11.setLayoutY(14.0);
+        button11.setMnemonicParsing(false);
+        button11.getStyleClass().add("grid");
+        button11.getStylesheets().add("/tictactoegui/css/gridbgcss.css");
+
         gridPane.getColumnConstraints().add(columnConstraints);
         gridPane.getColumnConstraints().add(columnConstraints0);
         gridPane.getColumnConstraints().add(columnConstraints1);
@@ -334,6 +348,8 @@ public class FXMLgameBase extends AnchorPane {
         getChildren().add(button8);
         getChildren().add(button9);
         getChildren().add(button10);
+        getChildren().add(label);
+        getChildren().add(button11);
 
     }
 }
