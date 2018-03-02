@@ -39,15 +39,7 @@ public class TicTacToeGui extends Application {
     Alert Msg=new Alert(AlertType.INFORMATION);
     
     boolean completed=false;
-    boolean pressed=false;
-    boolean pressed0=false;
-    boolean pressed1=false;
-    boolean pressed2=false;
-    boolean pressed3=false;
-    boolean pressed4=false;
-    boolean pressed5=false;
-    boolean pressed6=false;
-    boolean pressed7=false;
+    boolean[] pressed = new boolean[9];
   
     @Override
     public void start(Stage primaryStage) throws MalformedURLException { 
@@ -78,6 +70,7 @@ public class TicTacToeGui extends Application {
         }); 
         g.text0.setText("rania");
         initializeMovesArr();
+        initializePressedArr();
         Msg.setTitle("Winner Message");
         Msg.setHeaderText(null);
         putEvent(g);
@@ -139,6 +132,11 @@ public class TicTacToeGui extends Application {
         for(int i=0;i<9;i++)
         {
             allMoves[i]=new String("");
+        }
+    }
+    private void initializePressedArr() {
+        for (int i = 0; i < 9; i++) {
+            pressed[i] = false;
         }
     }
     private String[][] getXOBoard()
@@ -231,206 +229,109 @@ public class TicTacToeGui extends Application {
         }
         return completed;
    }
+   private void check() {
+
+        System.out.println(checkWinner());
+        if (checkWinner()) {
+            Msg.setContentText(lastmove + " Wins");
+            Msg.showAndWait();
+             for(int i=0;i<9;i++)
+            {
+                pressed[i]=true;
+            }
+
+        } else {
+            if (checkNoWinner()) {
+                Msg.setContentText("NoWinner");
+                Msg.showAndWait();
+
+            }
+        }
+
+    }
     private void putEvent(FXMLgameBase g){
              
         g.button.addEventHandler(ActionEvent.ACTION, (ActionEvent event) -> {
-            if(pressed==false)
+            if(pressed[0]==false)
             {
                 g.button.setGraphic(Casexoro());
                 allMoves[0]=lastmove; 
-                System.out.println(checkWinner());
-                if(checkWinner())
-                {
-                    Msg.setContentText(lastmove+" Wins");
-                    Msg.showAndWait();
-                }
-                else
-                {
-                    if(checkNoWinner())
-                    {
-                        Msg.setContentText("NoWinner");
-                        Msg.showAndWait();
-                    }
-                }
+                check();
             }
-            pressed=true;
+            pressed[0]=true;
         });
        
         g.button0.addEventHandler(ActionEvent.ACTION, (ActionEvent event) -> {
-            if(pressed0==false)
+            if(pressed[1]==false)
             {
                 g.button0.setGraphic(Casexoro());
                 allMoves[1]=lastmove;
-                System.out.println(checkWinner());
-                if(checkWinner())
-                {
-                    Msg.setContentText(lastmove+" Wins");
-                    Msg.showAndWait();
-                }
-                else
-                {
-                    if(checkNoWinner())
-                    {
-                        Msg.setContentText("NoWinner");
-                        Msg.showAndWait();
-                    }
-                }
+             	check();
             }
-            pressed0=true;
+            pressed[1]=true;
         });
         g.button1.addEventHandler(ActionEvent.ACTION, (ActionEvent event) -> {
-            if(pressed1==false)
+            if(pressed[2]==false)
             {
                 g.button1.setGraphic(Casexoro());            
                 allMoves[2]=lastmove;   
-                System.out.println(checkWinner());
-                if(checkWinner())
-                {
-                    Msg.setContentText(lastmove+" Wins");
-                    Msg.showAndWait();
-                }
-                else
-                {
-                    if(checkNoWinner())
-                    {
-                        Msg.setContentText("NoWinner");
-                        Msg.showAndWait();
-                    }
-                }
+                check();
             }
-            pressed1=true;
+            pressed[2]=true;
         });
         g.button2.addEventHandler(ActionEvent.ACTION, (ActionEvent event) -> {
-            if(pressed2==false)
+            if(pressed[3]==false)
             {
                 g.button2.setGraphic(Casexoro());         
                 allMoves[3]=lastmove; 
-                System.out.println(checkWinner());
-                if(checkWinner())
-                {
-                    Msg.setContentText(lastmove+" Wins");
-                    Msg.showAndWait();
-                }
-                else
-                {
-                    if(checkNoWinner())
-                    {
-                        Msg.setContentText("NoWinner");
-                        Msg.showAndWait();
-                    }
-                }
+               	check();
             }
-            pressed2=true;
+            pressed[3]=true;
         });
         g.button3.addEventHandler(ActionEvent.ACTION, (ActionEvent event) -> {
-            if(pressed3==false)
+            if(pressed[4]==false)
             {
                 g.button3.setGraphic(Casexoro());            
                 allMoves[4]=lastmove;  
-                System.out.println( checkWinner());
-                if(checkWinner())
-                {
-                    Msg.setContentText(lastmove+" Wins");
-                    Msg.showAndWait();
-                }
-                else
-                {
-                    if(checkNoWinner())
-                    {
-                        Msg.setContentText("NoWinner");
-                        Msg.showAndWait();
-                    }
-                }
+				check();               
             }
-            pressed3=true;
+            pressed[4]=true;
         });
         g.button4.addEventHandler(ActionEvent.ACTION, (ActionEvent event) -> {
-            if(pressed4==false)
+            if(pressed[5]==false)
             {
                 g.button4.setGraphic(Casexoro());
                 allMoves[5]=lastmove; 
-                System.out.println(checkWinner());
-                if(checkWinner())
-                {
-                    Msg.setContentText(lastmove+" Wins");
-                    Msg.showAndWait();
-                }
-                else
-                {
-                    if(checkNoWinner())
-                    {
-                        Msg.setContentText("NoWinner");
-                        Msg.showAndWait();
-                    }
-                }
+              	check();
             }
-            pressed4=true;
+            pressed[5]=true;
         });
         g.button5.addEventHandler(ActionEvent.ACTION, (ActionEvent event) -> {
-            if(pressed5==false)
+            if(pressed[6]==false)
             {
                 g.button5.setGraphic(Casexoro());
                 allMoves[6]=lastmove; 
-                System.out.println(checkWinner());
-                if(checkWinner())
-                {
-                    Msg.setContentText(lastmove+" Wins");
-                    Msg.showAndWait();
-                }
-                else
-                {
-                    if(checkNoWinner())
-                    {
-                        Msg.setContentText("NoWinner");
-                        Msg.showAndWait();
-                    }
-                }
+              	check();
             }
-            pressed5=true;
+            pressed[6]=true;
         });
          g.button6.addEventHandler(ActionEvent.ACTION, (ActionEvent event) -> {
-            if(pressed6==false)
+            if(pressed[7]==false)
             {
                 g.button6.setGraphic(Casexoro());
                 allMoves[7]=lastmove;  
-                System.out.println( checkWinner());
-                if(checkWinner())
-                {
-                    Msg.setContentText(lastmove+" Wins");
-                    Msg.showAndWait();
-                }
-                else
-                {
-                    if(checkNoWinner())
-                    {
-                        Msg.setContentText("NoWinner");
-                        Msg.showAndWait();
-                    }
-                }
+                check();
             }
-            pressed6=true;
+            pressed[7]=true;
         });
           g.button7.addEventHandler(ActionEvent.ACTION, (ActionEvent event) -> {
-              if(pressed7==false)
+              if(pressed[8]==false)
               {
                 g.button7.setGraphic(Casexoro());
                 allMoves[8]=lastmove;
-                System.out.println(checkWinner());
-                if(checkWinner())
-                {
-                    Msg.setContentText(lastmove+" Wins");
-                    Msg.showAndWait();
-                }
-                else
-                {
-                    if(checkNoWinner())
-                    {
-                        Msg.setContentText("NoWinner");
-                        Msg.showAndWait();
-                    }
-                }
+                check();
               }
-              pressed7=true;
+              pressed[8]=true;
         });
 	 g.button8.addEventHandler(ActionEvent.ACTION, (ActionEvent event) -> {
                 lastmove ="o";
