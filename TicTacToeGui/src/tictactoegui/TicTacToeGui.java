@@ -374,7 +374,10 @@ for(int k=0;k<j;k++)
     else
     {
         allMoves[freeIndices[k]]="";
-        
+         while (pressed[randomNum] == true && checkWinner() != true) {
+            randomNum = (int) (Math.random() * Math.random() * Math.random() * Math.random() * 9);
+            System.out.println(randomNum);
+        }
     }
   
     }
