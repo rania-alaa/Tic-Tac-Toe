@@ -82,11 +82,7 @@ public class TicTacToeGui extends Application {
    
     
     public void sendMovetoServer(int x, int y , int icon){
-        if(clintHandler.isMyTurn){
-           clintHandler.ps.println("PAT_"+x+"_"+y+"_"+icon); 
-           this.clintHandler.isMyTurn = false;
-           System.out.println("after set to false: isMyturn  = " + clintHandler.isMyTurn);
-        }
+        clintHandler.ps.println("PAT_"+x+"_"+y+"_"+icon); 
     }
     
     public void putIdandActionEvent(){
@@ -101,9 +97,7 @@ public class TicTacToeGui extends Application {
                         int dim1 = Integer.parseInt(String.valueOf(btn.getId().charAt(0)));
                         int dim2 = Integer.parseInt(String.valueOf(btn.getId().charAt(2)));
                         if( clintHandler.isMyTurn ){
-                            System.out.println("handle: isMyturn  = " + clintHandler.isMyTurn); 
                             sendMovetoServer(dim1,dim2,clintHandler.player.getPlayerIcon());
-                            //clintHandler.isMyTurn = false;
                         }
                     }
                 });
