@@ -45,6 +45,8 @@ public class FXMLgameBase extends AnchorPane {
     protected final Button button8;
     protected final Button button9;
     protected final Button button10;
+    
+    protected final Button [][] btnArr ;
 
     public FXMLgameBase() {
 
@@ -82,7 +84,19 @@ public class FXMLgameBase extends AnchorPane {
         button8 = new Button();
         button9 = new Button();
         button10 = new Button();
+        
+        //
+        
+        btnArr = new Button [][] {
+            {button ,button0, button1},
+            {button2, button3,button4}, 
+            {button5, button6, button7}  };
 
+        
+        
+    
+       
+        
         setMaxHeight(USE_PREF_SIZE);
         setMaxWidth(USE_PREF_SIZE);
         setMinHeight(USE_PREF_SIZE);
