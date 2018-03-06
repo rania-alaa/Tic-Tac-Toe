@@ -91,8 +91,8 @@ public class CheckWin extends TicTacToeGui{
     public static boolean check() {
         //System.out.println(checkWinner());
         if (checkWinner()) {
-            Msg.setContentText(lastmove + " Wins");
-            TicTacToeGui.Msg.showAndWait();
+            WinOrLoss.display("image/Winner.png",lastmove+" is the Winner");
+            // WinOrLoss.display("image/win.gif",lastmove+" is the Winner");
              for(int i=0;i<9;i++)
             {
                 pressed[i]=true;
@@ -100,8 +100,11 @@ public class CheckWin extends TicTacToeGui{
             return true;
         } else {
             if (checkNoWinner()) {
-                Msg.setContentText("NoWinner");
-                Msg.showAndWait();
+               WinOrLoss.display("image/Fail.png"," no winnerWinner");
+                for(int i=0;i<9;i++)
+               {
+                   pressed[i]=true;
+               }
                 return true;
             }
         }

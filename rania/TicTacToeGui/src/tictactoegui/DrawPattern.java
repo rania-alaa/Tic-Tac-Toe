@@ -56,6 +56,11 @@ import javafx.scene.image.ImageView;
             TicTacToeGui.pressed[i] = false;
         }
     }
+    static public void initializeCompPressedArr() {
+        for (int i = 0; i < 9; i++) {
+            TicTacToeGui.comppressed[i] = false;
+        }
+    }
     static public String[][] getXOBoard()
     {
         String [][] xo=new String [3][3];

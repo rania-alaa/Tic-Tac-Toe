@@ -36,7 +36,7 @@ public class FXMLsymbolBase extends AnchorPane {
 
         label0.setLayoutX(225.0);
         label0.setLayoutY(240.0);
-        label0.setText("Choose Symbole");
+        label0.setText("Choose Symbol");
         label0.setTextFill(javafx.scene.paint.Color.valueOf("#e10202"));
         label0.setFont(new Font("System Bold", 30.0));
 

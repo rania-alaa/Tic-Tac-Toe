@@ -95,59 +95,61 @@ public class CheckEvent {
             pressed[0] = true;
                 
             }
-            
-            // if the other player wasn't win allow computer to play 
-            if (TicTacToeGui.comppressed[0] == false)
+            if(TicTacToeGui.singlemode==true)
             {
-                if (!TicTacToeGui.win) {
-                int cmpTurn = computerTurn();
-                if (cmpTurn == 1) {
-                    g.button0.setGraphic(DrawPattern.Casexoro());
-                    TicTacToeGui.allMoves[1] = TicTacToeGui.lastmove;
-                    pressed[1] = true;
-                    TicTacToeGui.comppressed[1]=true;
-                } else if (cmpTurn == 2) {
-                    g.button1.setGraphic(DrawPattern.Casexoro());
-                    TicTacToeGui.allMoves[2] = TicTacToeGui.lastmove;
-                    pressed[2] = true;
-                    TicTacToeGui.comppressed[2]=true;
-                } else if (cmpTurn == 3) {
-                    g.button2.setGraphic(DrawPattern.Casexoro());
-                    TicTacToeGui.allMoves[3] = TicTacToeGui.lastmove;
-                    pressed[3] = true;
-                    TicTacToeGui.comppressed[3]=true;
-                } else if (cmpTurn == 4) {
-                    g.button3.setGraphic(DrawPattern.Casexoro());
-                    TicTacToeGui.allMoves[4] = TicTacToeGui.lastmove;
-                    pressed[4] = true;
-                    TicTacToeGui.comppressed[4]=true;
-                } else if (cmpTurn == 5) {
-                    g.button4.setGraphic(DrawPattern.Casexoro());
-                    TicTacToeGui.allMoves[5] = TicTacToeGui.lastmove;
-                    pressed[5] = true;
-                    TicTacToeGui.comppressed[5]=true;
-                } else if (cmpTurn == 6) {
-                    g.button5.setGraphic(DrawPattern.Casexoro());
-                    TicTacToeGui.allMoves[6] = TicTacToeGui.lastmove;
-                    pressed[6] = true;
-                    TicTacToeGui.comppressed[6]=true;
-                } else if (cmpTurn == 7) {
-                    g.button6.setGraphic(DrawPattern.Casexoro());
-                    TicTacToeGui.allMoves[7] = TicTacToeGui.lastmove;
-                    pressed[7] = true;
-                    TicTacToeGui.comppressed[7]=true;
+            // if the other player wasn't win allow computer to play 
+                if (TicTacToeGui.comppressed[0] == false)
+                {
+                    if (!TicTacToeGui.win) {
+                    int cmpTurn = computerTurn();
+                    if (cmpTurn == 1) {
+                        g.button0.setGraphic(DrawPattern.Casexoro());
+                        TicTacToeGui.allMoves[1] = TicTacToeGui.lastmove;
+                        pressed[1] = true;
+                        TicTacToeGui.comppressed[1]=true;
+                    } else if (cmpTurn == 2) {
+                        g.button1.setGraphic(DrawPattern.Casexoro());
+                        TicTacToeGui.allMoves[2] = TicTacToeGui.lastmove;
+                        pressed[2] = true;
+                        TicTacToeGui.comppressed[2]=true;
+                    } else if (cmpTurn == 3) {
+                        g.button2.setGraphic(DrawPattern.Casexoro());
+                        TicTacToeGui.allMoves[3] = TicTacToeGui.lastmove;
+                        pressed[3] = true;
+                        TicTacToeGui.comppressed[3]=true;
+                    } else if (cmpTurn == 4) {
+                        g.button3.setGraphic(DrawPattern.Casexoro());
+                        TicTacToeGui.allMoves[4] = TicTacToeGui.lastmove;
+                        pressed[4] = true;
+                        TicTacToeGui.comppressed[4]=true;
+                    } else if (cmpTurn == 5) {
+                        g.button4.setGraphic(DrawPattern.Casexoro());
+                        TicTacToeGui.allMoves[5] = TicTacToeGui.lastmove;
+                        pressed[5] = true;
+                        TicTacToeGui.comppressed[5]=true;
+                    } else if (cmpTurn == 6) {
+                        g.button5.setGraphic(DrawPattern.Casexoro());
+                        TicTacToeGui.allMoves[6] = TicTacToeGui.lastmove;
+                        pressed[6] = true;
+                        TicTacToeGui.comppressed[6]=true;
+                    } else if (cmpTurn == 7) {
+                        g.button6.setGraphic(DrawPattern.Casexoro());
+                        TicTacToeGui.allMoves[7] = TicTacToeGui.lastmove;
+                        pressed[7] = true;
+                        TicTacToeGui.comppressed[7]=true;
 
-                } else if (cmpTurn == 8) {
-                    g.button7.setGraphic(DrawPattern.Casexoro());
-                    TicTacToeGui.allMoves[8] = TicTacToeGui.lastmove;
-                    pressed[8] = true;
-                    TicTacToeGui.comppressed[8]=true;
+                    } else if (cmpTurn == 8) {
+                        g.button7.setGraphic(DrawPattern.Casexoro());
+                        TicTacToeGui.allMoves[8] = TicTacToeGui.lastmove;
+                        pressed[8] = true;
+                        TicTacToeGui.comppressed[8]=true;
+                    }
+
+                    TicTacToeGui.win = CheckWin.check();
+
                 }
-                
-                TicTacToeGui.win = CheckWin.check();
-                
-            }
-                TicTacToeGui.comppressed[0]= true;
+                    TicTacToeGui.comppressed[0]= true;
+                }
             }
         });
        
@@ -159,58 +161,60 @@ public class CheckEvent {
              	 TicTacToeGui.win=CheckWin.check();
                 pressed[1] = true;
             }
-           
-                if (TicTacToeGui.comppressed[1] == false)
+            if(TicTacToeGui.singlemode==true)
             {
-            if (!TicTacToeGui.win) {
-                int cmpTurn = computerTurn();
+                if (TicTacToeGui.comppressed[1] == false)
+                {
+                if (!TicTacToeGui.win) {
+                    int cmpTurn = computerTurn();
 
-                if (cmpTurn == 0) {
-                    g.button.setGraphic(DrawPattern.Casexoro());
-                    TicTacToeGui.allMoves[0] = TicTacToeGui.lastmove;
-                    pressed[0] = true;
-                    TicTacToeGui.comppressed[0]=true;
-                } else if (cmpTurn == 2) {
-                    g.button1.setGraphic(DrawPattern.Casexoro());
-                    TicTacToeGui.allMoves[2] = TicTacToeGui.lastmove;
-                    pressed[2] = true;
-                    TicTacToeGui.comppressed[2]=true;
-                } else if (cmpTurn == 3) {
-                    g.button2.setGraphic(DrawPattern.Casexoro());
-                    TicTacToeGui.allMoves[3] = TicTacToeGui.lastmove;
-                    pressed[3] = true;
-                    TicTacToeGui.comppressed[3]=true;
-                } else if (cmpTurn == 4) {
-                    g.button3.setGraphic(DrawPattern.Casexoro());
-                    TicTacToeGui.allMoves[4] = TicTacToeGui.lastmove;
-                    pressed[4] = true;
-                    TicTacToeGui.comppressed[4]=true;
-                } else if (cmpTurn == 5) {
-                    g.button4.setGraphic(DrawPattern.Casexoro());
-                    TicTacToeGui.allMoves[5] = TicTacToeGui.lastmove;
-                    pressed[5] = true;
-                    TicTacToeGui.comppressed[5]=true;
-                } else if (cmpTurn == 6) {
-                    g.button5.setGraphic(DrawPattern.Casexoro());
-                    TicTacToeGui.allMoves[6] = TicTacToeGui.lastmove;
-                    pressed[6] = true;
-                    TicTacToeGui.comppressed[6]=true;
-                } else if (cmpTurn == 7) {
-                    g.button6.setGraphic(DrawPattern.Casexoro());
-                    TicTacToeGui.allMoves[7] = TicTacToeGui.lastmove;
-                    pressed[7] = true;
-                    TicTacToeGui.comppressed[7]=true;
+                    if (cmpTurn == 0) {
+                        g.button.setGraphic(DrawPattern.Casexoro());
+                        TicTacToeGui.allMoves[0] = TicTacToeGui.lastmove;
+                        pressed[0] = true;
+                        TicTacToeGui.comppressed[0]=true;
+                    } else if (cmpTurn == 2) {
+                        g.button1.setGraphic(DrawPattern.Casexoro());
+                        TicTacToeGui.allMoves[2] = TicTacToeGui.lastmove;
+                        pressed[2] = true;
+                        TicTacToeGui.comppressed[2]=true;
+                    } else if (cmpTurn == 3) {
+                        g.button2.setGraphic(DrawPattern.Casexoro());
+                        TicTacToeGui.allMoves[3] = TicTacToeGui.lastmove;
+                        pressed[3] = true;
+                        TicTacToeGui.comppressed[3]=true;
+                    } else if (cmpTurn == 4) {
+                        g.button3.setGraphic(DrawPattern.Casexoro());
+                        TicTacToeGui.allMoves[4] = TicTacToeGui.lastmove;
+                        pressed[4] = true;
+                        TicTacToeGui.comppressed[4]=true;
+                    } else if (cmpTurn == 5) {
+                        g.button4.setGraphic(DrawPattern.Casexoro());
+                        TicTacToeGui.allMoves[5] = TicTacToeGui.lastmove;
+                        pressed[5] = true;
+                        TicTacToeGui.comppressed[5]=true;
+                    } else if (cmpTurn == 6) {
+                        g.button5.setGraphic(DrawPattern.Casexoro());
+                        TicTacToeGui.allMoves[6] = TicTacToeGui.lastmove;
+                        pressed[6] = true;
+                        TicTacToeGui.comppressed[6]=true;
+                    } else if (cmpTurn == 7) {
+                        g.button6.setGraphic(DrawPattern.Casexoro());
+                        TicTacToeGui.allMoves[7] = TicTacToeGui.lastmove;
+                        pressed[7] = true;
+                        TicTacToeGui.comppressed[7]=true;
 
-                } else if (cmpTurn == 8) {
-                    g.button7.setGraphic(DrawPattern.Casexoro());
-                    TicTacToeGui.allMoves[8] = TicTacToeGui.lastmove;
-                    pressed[8] = true;
-                    TicTacToeGui.comppressed[8]=true;
+                    } else if (cmpTurn == 8) {
+                        g.button7.setGraphic(DrawPattern.Casexoro());
+                        TicTacToeGui.allMoves[8] = TicTacToeGui.lastmove;
+                        pressed[8] = true;
+                        TicTacToeGui.comppressed[8]=true;
+                    }
+                    TicTacToeGui.win = CheckWin.check();
+
                 }
-                TicTacToeGui.win = CheckWin.check();
-                
-            }
-                TicTacToeGui.comppressed[1]= true;
+                    TicTacToeGui.comppressed[1]= true;
+                }
             }
         });
         g.button1.addEventHandler(ActionEvent.ACTION, (ActionEvent event) -> {
@@ -218,63 +222,65 @@ public class CheckEvent {
             {
                 g.button1.setGraphic(DrawPattern.Casexoro());            
                 TicTacToeGui.allMoves[2]=TicTacToeGui.lastmove;   
-                 TicTacToeGui.win=CheckWin.check();
-             pressed[2] = true;
+                TicTacToeGui.win=CheckWin.check();
+                pressed[2] = true;
             }
-
-            if (TicTacToeGui.comppressed[2] == false)
+            if(TicTacToeGui.singlemode==true)
             {
-            if (!TicTacToeGui.win) {
+                if (TicTacToeGui.comppressed[2] == false)
+                {
+                if (!TicTacToeGui.win) {
 
-                int cmpTurn = computerTurn();
-                System.out.print(cmpTurn);
-                if (cmpTurn == 0) {
+                    int cmpTurn = computerTurn();
+                    System.out.print(cmpTurn);
+                    if (cmpTurn == 0) {
 
-                    g.button.setGraphic(DrawPattern.Casexoro());
-                    TicTacToeGui.allMoves[0] = TicTacToeGui.lastmove;
-                    pressed[0] = true;
-                    TicTacToeGui.comppressed[0]=true;
-                } else if (cmpTurn == 1) {
-                    g.button1.setGraphic(DrawPattern.Casexoro());
-                    TicTacToeGui.allMoves[1] = TicTacToeGui.lastmove;
-                    pressed[1] = true;
-                    TicTacToeGui.comppressed[1]=true;
-                } else if (cmpTurn == 3) {
-                    g.button2.setGraphic(DrawPattern.Casexoro());
-                    TicTacToeGui.allMoves[3] = TicTacToeGui.lastmove;
-                    pressed[3] = true;
-                    TicTacToeGui.comppressed[3]=true;
-                } else if (cmpTurn == 4) {
-                    g.button3.setGraphic(DrawPattern.Casexoro());
-                    TicTacToeGui.allMoves[4] = TicTacToeGui.lastmove;
-                    pressed[4] = true;
-                    TicTacToeGui.comppressed[4]=true;
-                } else if (cmpTurn == 5) {
-                    g.button4.setGraphic(DrawPattern.Casexoro());
-                    TicTacToeGui.allMoves[5] = TicTacToeGui.lastmove;
-                    pressed[5] = true;
-                    TicTacToeGui.comppressed[5]=true;
-                } else if (cmpTurn == 6) {
-                    g.button5.setGraphic(DrawPattern.Casexoro());
-                    TicTacToeGui.allMoves[6] = TicTacToeGui.lastmove;
-                    pressed[6] = true;
-                   TicTacToeGui.comppressed[6]=true;
-                } else if (cmpTurn == 7) {
-                    g.button6.setGraphic(DrawPattern.Casexoro());
-                    TicTacToeGui.allMoves[7] = TicTacToeGui.lastmove;
-                    pressed[7] = true;
-                    TicTacToeGui.comppressed[7]=true;
+                        g.button.setGraphic(DrawPattern.Casexoro());
+                        TicTacToeGui.allMoves[0] = TicTacToeGui.lastmove;
+                        pressed[0] = true;
+                        TicTacToeGui.comppressed[0]=true;
+                    } else if (cmpTurn == 1) {
+                        g.button1.setGraphic(DrawPattern.Casexoro());
+                        TicTacToeGui.allMoves[1] = TicTacToeGui.lastmove;
+                        pressed[1] = true;
+                        TicTacToeGui.comppressed[1]=true;
+                    } else if (cmpTurn == 3) {
+                        g.button2.setGraphic(DrawPattern.Casexoro());
+                        TicTacToeGui.allMoves[3] = TicTacToeGui.lastmove;
+                        pressed[3] = true;
+                        TicTacToeGui.comppressed[3]=true;
+                    } else if (cmpTurn == 4) {
+                        g.button3.setGraphic(DrawPattern.Casexoro());
+                        TicTacToeGui.allMoves[4] = TicTacToeGui.lastmove;
+                        pressed[4] = true;
+                        TicTacToeGui.comppressed[4]=true;
+                    } else if (cmpTurn == 5) {
+                        g.button4.setGraphic(DrawPattern.Casexoro());
+                        TicTacToeGui.allMoves[5] = TicTacToeGui.lastmove;
+                        pressed[5] = true;
+                        TicTacToeGui.comppressed[5]=true;
+                    } else if (cmpTurn == 6) {
+                        g.button5.setGraphic(DrawPattern.Casexoro());
+                        TicTacToeGui.allMoves[6] = TicTacToeGui.lastmove;
+                        pressed[6] = true;
+                       TicTacToeGui.comppressed[6]=true;
+                    } else if (cmpTurn == 7) {
+                        g.button6.setGraphic(DrawPattern.Casexoro());
+                        TicTacToeGui.allMoves[7] = TicTacToeGui.lastmove;
+                        pressed[7] = true;
+                        TicTacToeGui.comppressed[7]=true;
 
-                } else if (cmpTurn == 8) {
-                    g.button7.setGraphic(DrawPattern.Casexoro());
-                    TicTacToeGui.allMoves[8] = TicTacToeGui.lastmove;
-                    pressed[8] = true;
-                    TicTacToeGui.comppressed[8]=true;
+                    } else if (cmpTurn == 8) {
+                        g.button7.setGraphic(DrawPattern.Casexoro());
+                        TicTacToeGui.allMoves[8] = TicTacToeGui.lastmove;
+                        pressed[8] = true;
+                        TicTacToeGui.comppressed[8]=true;
+                    }
+                    TicTacToeGui.win = CheckWin.check();
+
                 }
-                TicTacToeGui.win = CheckWin.check();
-                
-            }
-                TicTacToeGui.comppressed[2]= true;
+                    TicTacToeGui.comppressed[2]= true;
+                }
             }
         });
         g.button2.addEventHandler(ActionEvent.ACTION, (ActionEvent event) -> {
@@ -285,57 +291,61 @@ public class CheckEvent {
                	 TicTacToeGui.win=CheckWin.check();
             pressed[3] = true;
             }
-            if(TicTacToeGui.comppressed[3]==false){
-            if (!TicTacToeGui.win) {
-                int cmpTurn = computerTurn();
+            
+            if(TicTacToeGui.singlemode==true)
+            {
+                if(TicTacToeGui.comppressed[3]==false){
+                if (!TicTacToeGui.win) {
+                    int cmpTurn = computerTurn();
 
-                if (cmpTurn == 0) {
+                    if (cmpTurn == 0) {
 
-                    g.button.setGraphic(DrawPattern.Casexoro());
-                   TicTacToeGui.allMoves[0] = TicTacToeGui.lastmove;
-                    pressed[0] = true;
-                    TicTacToeGui.comppressed[0]=true;
-                } else if (cmpTurn == 1) {
-                    g.button0.setGraphic(DrawPattern.Casexoro());
-                    TicTacToeGui.allMoves[1] = TicTacToeGui.lastmove;
-                    pressed[1] = true;
-                    TicTacToeGui.comppressed[1]=true;
-                } else if (cmpTurn == 2) {
-                    g.button1.setGraphic(DrawPattern.Casexoro());
-                    TicTacToeGui.allMoves[2] = TicTacToeGui.lastmove;
-                    pressed[2] = true;
-                    TicTacToeGui.comppressed[2]=true;
-                } else if (cmpTurn == 4) {
-                    g.button3.setGraphic(DrawPattern.Casexoro());
-                    TicTacToeGui.allMoves[4] = TicTacToeGui.lastmove;
-                    pressed[4] = true;
-                    TicTacToeGui.comppressed[4]=true;
-                } else if (cmpTurn == 5) {
-                    g.button4.setGraphic(DrawPattern.Casexoro());
-                    TicTacToeGui.allMoves[5] = TicTacToeGui.lastmove;
-                    pressed[5] = true;
-                    TicTacToeGui.comppressed[5]=true;
-                } else if (cmpTurn == 6) {
-                    g.button5.setGraphic(DrawPattern.Casexoro());
-                    TicTacToeGui.allMoves[6] = TicTacToeGui.lastmove;
-                    pressed[6] = true;
-                    TicTacToeGui.comppressed[6]=true;
-                } else if (cmpTurn == 7) {
-                    g.button6.setGraphic(DrawPattern.Casexoro());
-                    TicTacToeGui.allMoves[7] = TicTacToeGui.lastmove;
-                    pressed[7] = true;
-                    TicTacToeGui.comppressed[7]=true;
+                        g.button.setGraphic(DrawPattern.Casexoro());
+                       TicTacToeGui.allMoves[0] = TicTacToeGui.lastmove;
+                        pressed[0] = true;
+                        TicTacToeGui.comppressed[0]=true;
+                    } else if (cmpTurn == 1) {
+                        g.button0.setGraphic(DrawPattern.Casexoro());
+                        TicTacToeGui.allMoves[1] = TicTacToeGui.lastmove;
+                        pressed[1] = true;
+                        TicTacToeGui.comppressed[1]=true;
+                    } else if (cmpTurn == 2) {
+                        g.button1.setGraphic(DrawPattern.Casexoro());
+                        TicTacToeGui.allMoves[2] = TicTacToeGui.lastmove;
+                        pressed[2] = true;
+                        TicTacToeGui.comppressed[2]=true;
+                    } else if (cmpTurn == 4) {
+                        g.button3.setGraphic(DrawPattern.Casexoro());
+                        TicTacToeGui.allMoves[4] = TicTacToeGui.lastmove;
+                        pressed[4] = true;
+                        TicTacToeGui.comppressed[4]=true;
+                    } else if (cmpTurn == 5) {
+                        g.button4.setGraphic(DrawPattern.Casexoro());
+                        TicTacToeGui.allMoves[5] = TicTacToeGui.lastmove;
+                        pressed[5] = true;
+                        TicTacToeGui.comppressed[5]=true;
+                    } else if (cmpTurn == 6) {
+                        g.button5.setGraphic(DrawPattern.Casexoro());
+                        TicTacToeGui.allMoves[6] = TicTacToeGui.lastmove;
+                        pressed[6] = true;
+                        TicTacToeGui.comppressed[6]=true;
+                    } else if (cmpTurn == 7) {
+                        g.button6.setGraphic(DrawPattern.Casexoro());
+                        TicTacToeGui.allMoves[7] = TicTacToeGui.lastmove;
+                        pressed[7] = true;
+                        TicTacToeGui.comppressed[7]=true;
 
-                } else if (cmpTurn == 8) {
-                    g.button7.setGraphic(DrawPattern.Casexoro());
-                    TicTacToeGui.allMoves[8] = TicTacToeGui.lastmove;
-                    pressed[8] = true;
-                    TicTacToeGui.comppressed[8]=true;
+                    } else if (cmpTurn == 8) {
+                        g.button7.setGraphic(DrawPattern.Casexoro());
+                        TicTacToeGui.allMoves[8] = TicTacToeGui.lastmove;
+                        pressed[8] = true;
+                        TicTacToeGui.comppressed[8]=true;
+                    }
+                    TicTacToeGui.win = CheckWin.check();
+
                 }
-                TicTacToeGui.win = CheckWin.check();
-                
-            }
-                TicTacToeGui.comppressed[3]= true;
+                    TicTacToeGui.comppressed[3]= true;
+                }
             }
         });
         g.button3.addEventHandler(ActionEvent.ACTION, (ActionEvent event) -> {
@@ -346,56 +356,60 @@ public class CheckEvent {
 		TicTacToeGui.win=CheckWin.check();               
             pressed[4] = true;
             }
-            if(TicTacToeGui.comppressed[4]==false){
-            if (!TicTacToeGui.win) {
-                int cmpTurn = computerTurn();
-                if (cmpTurn == 0) {
+            
+            if(TicTacToeGui.singlemode==true)
+            {
+                if(TicTacToeGui.comppressed[4]==false){
+                if (!TicTacToeGui.win) {
+                    int cmpTurn = computerTurn();
+                    if (cmpTurn == 0) {
 
-                    g.button.setGraphic(DrawPattern.Casexoro());
-                    TicTacToeGui.allMoves[0] = TicTacToeGui.lastmove;
-                    pressed[0] = true;
-                    TicTacToeGui.comppressed[0]=true;
-                } else if (cmpTurn == 1) {
-                    g.button0.setGraphic(DrawPattern.Casexoro());
-                    TicTacToeGui.allMoves[1] = TicTacToeGui.lastmove;
-                    pressed[1] = true;
-                    TicTacToeGui.comppressed[1]=true;
-                } else if (cmpTurn == 2) {
-                    g.button1.setGraphic(DrawPattern.Casexoro());
-                    TicTacToeGui.allMoves[2] = TicTacToeGui.lastmove;
-                    pressed[2] = true;
-                    TicTacToeGui.comppressed[2]=true;
-                } else if (cmpTurn == 3) {
-                    g.button2.setGraphic(DrawPattern.Casexoro());
-                    TicTacToeGui.allMoves[3] = TicTacToeGui.lastmove;
-                    pressed[3] = true;
-                    TicTacToeGui.comppressed[3]=true;
-                } else if (cmpTurn == 5) {
-                    g.button4.setGraphic(DrawPattern.Casexoro());
-                    TicTacToeGui.allMoves[5] = TicTacToeGui.lastmove;
-                    TicTacToeGui.pressed[5] = true;
-                    TicTacToeGui.comppressed[5]=true;
-                } else if (cmpTurn == 6) {
-                    g.button5.setGraphic(DrawPattern.Casexoro());
-                    TicTacToeGui.allMoves[6] = TicTacToeGui.lastmove;
-                    pressed[6] = true;
-                    TicTacToeGui.comppressed[6]=true;
-                } else if (cmpTurn == 7) {
-                    g.button6.setGraphic(DrawPattern.Casexoro());
-                    TicTacToeGui.allMoves[7] = TicTacToeGui.lastmove;
-                    pressed[7] = true;
-                    TicTacToeGui.comppressed[7]=true;
+                        g.button.setGraphic(DrawPattern.Casexoro());
+                        TicTacToeGui.allMoves[0] = TicTacToeGui.lastmove;
+                        pressed[0] = true;
+                        TicTacToeGui.comppressed[0]=true;
+                    } else if (cmpTurn == 1) {
+                        g.button0.setGraphic(DrawPattern.Casexoro());
+                        TicTacToeGui.allMoves[1] = TicTacToeGui.lastmove;
+                        pressed[1] = true;
+                        TicTacToeGui.comppressed[1]=true;
+                    } else if (cmpTurn == 2) {
+                        g.button1.setGraphic(DrawPattern.Casexoro());
+                        TicTacToeGui.allMoves[2] = TicTacToeGui.lastmove;
+                        pressed[2] = true;
+                        TicTacToeGui.comppressed[2]=true;
+                    } else if (cmpTurn == 3) {
+                        g.button2.setGraphic(DrawPattern.Casexoro());
+                        TicTacToeGui.allMoves[3] = TicTacToeGui.lastmove;
+                        pressed[3] = true;
+                        TicTacToeGui.comppressed[3]=true;
+                    } else if (cmpTurn == 5) {
+                        g.button4.setGraphic(DrawPattern.Casexoro());
+                        TicTacToeGui.allMoves[5] = TicTacToeGui.lastmove;
+                        TicTacToeGui.pressed[5] = true;
+                        TicTacToeGui.comppressed[5]=true;
+                    } else if (cmpTurn == 6) {
+                        g.button5.setGraphic(DrawPattern.Casexoro());
+                        TicTacToeGui.allMoves[6] = TicTacToeGui.lastmove;
+                        pressed[6] = true;
+                        TicTacToeGui.comppressed[6]=true;
+                    } else if (cmpTurn == 7) {
+                        g.button6.setGraphic(DrawPattern.Casexoro());
+                        TicTacToeGui.allMoves[7] = TicTacToeGui.lastmove;
+                        pressed[7] = true;
+                        TicTacToeGui.comppressed[7]=true;
 
-                } else if (cmpTurn == 8) {
-                    g.button7.setGraphic(DrawPattern.Casexoro());
-                    TicTacToeGui.allMoves[8] = TicTacToeGui.lastmove;
-                    pressed[8] = true;
-                   TicTacToeGui.comppressed[8]=true;
+                    } else if (cmpTurn == 8) {
+                        g.button7.setGraphic(DrawPattern.Casexoro());
+                        TicTacToeGui.allMoves[8] = TicTacToeGui.lastmove;
+                        pressed[8] = true;
+                       TicTacToeGui.comppressed[8]=true;
+                    }
+                    TicTacToeGui.win = CheckWin.check();
+
                 }
-                TicTacToeGui.win = CheckWin.check();
-                
-            }
-                TicTacToeGui.comppressed[4]= true;
+                    TicTacToeGui.comppressed[4]= true;
+                }
             }
         });
         g.button4.addEventHandler(ActionEvent.ACTION, (ActionEvent event) -> {
@@ -407,56 +421,60 @@ public class CheckEvent {
              pressed[5] = true;  
              
             }
-            if(TicTacToeGui.comppressed[5]==false)
-            if (!TicTacToeGui.win) {
-                int cmpTurn = computerTurn();
-                if (cmpTurn == 0) {
-                    g.button.setGraphic(DrawPattern.Casexoro());
-                    TicTacToeGui.allMoves[0] = TicTacToeGui.lastmove;
-                    pressed[0] = true;
-                    TicTacToeGui.comppressed[0]=true;
-                } else if (cmpTurn == 1) {
-                    g.button0.setGraphic(DrawPattern.Casexoro());
-                   TicTacToeGui.allMoves[1] = TicTacToeGui.lastmove;
-                    pressed[1] = true;
-                    TicTacToeGui.comppressed[1]=true;
-                } else if (cmpTurn == 2) {
-                    g.button1.setGraphic(DrawPattern.Casexoro());
-                    TicTacToeGui.allMoves[2] = TicTacToeGui.lastmove;
-                    pressed[2] = true;
-                    TicTacToeGui.comppressed[2]=true;
-                } else if (cmpTurn == 3) {
-                    g.button2.setGraphic(DrawPattern.Casexoro());
-                    TicTacToeGui.allMoves[3] = TicTacToeGui.lastmove;
-                    pressed[3] = true;
-                    TicTacToeGui.comppressed[3]=true;
-                } else if (cmpTurn == 4) {
-                    g.button3.setGraphic(DrawPattern.Casexoro());
-                    TicTacToeGui.allMoves[4] = TicTacToeGui.lastmove;
-                    pressed[4] = true;
-                    TicTacToeGui.comppressed[4]=true;
-                } else if (cmpTurn == 6) {
-                    g.button5.setGraphic(DrawPattern.Casexoro());
-                    TicTacToeGui.allMoves[6] = TicTacToeGui.lastmove;
-                    pressed[6] = true;
-                    TicTacToeGui.comppressed[6]=true;
-                } else if (cmpTurn == 7) {
-                    g.button6.setGraphic(DrawPattern.Casexoro());
-                    TicTacToeGui.allMoves[7] = TicTacToeGui.lastmove;
-                    pressed[7] = true;
-                    TicTacToeGui.comppressed[7]=true;
-
-                } else if (cmpTurn == 8) {
-                    g.button7.setGraphic(DrawPattern.Casexoro());
-                    TicTacToeGui.allMoves[8] = TicTacToeGui.lastmove;
-                    pressed[8] = true;
-                    TicTacToeGui.comppressed[8]=true;
-                }
-
-                TicTacToeGui.win = CheckWin.check();
-                
             
-                TicTacToeGui.comppressed[5]= true;
+            if(TicTacToeGui.singlemode==true)
+            {
+                if(TicTacToeGui.comppressed[5]==false)
+                if (!TicTacToeGui.win) {
+                    int cmpTurn = computerTurn();
+                    if (cmpTurn == 0) {
+                        g.button.setGraphic(DrawPattern.Casexoro());
+                        TicTacToeGui.allMoves[0] = TicTacToeGui.lastmove;
+                        pressed[0] = true;
+                        TicTacToeGui.comppressed[0]=true;
+                    } else if (cmpTurn == 1) {
+                        g.button0.setGraphic(DrawPattern.Casexoro());
+                       TicTacToeGui.allMoves[1] = TicTacToeGui.lastmove;
+                        pressed[1] = true;
+                        TicTacToeGui.comppressed[1]=true;
+                    } else if (cmpTurn == 2) {
+                        g.button1.setGraphic(DrawPattern.Casexoro());
+                        TicTacToeGui.allMoves[2] = TicTacToeGui.lastmove;
+                        pressed[2] = true;
+                        TicTacToeGui.comppressed[2]=true;
+                    } else if (cmpTurn == 3) {
+                        g.button2.setGraphic(DrawPattern.Casexoro());
+                        TicTacToeGui.allMoves[3] = TicTacToeGui.lastmove;
+                        pressed[3] = true;
+                        TicTacToeGui.comppressed[3]=true;
+                    } else if (cmpTurn == 4) {
+                        g.button3.setGraphic(DrawPattern.Casexoro());
+                        TicTacToeGui.allMoves[4] = TicTacToeGui.lastmove;
+                        pressed[4] = true;
+                        TicTacToeGui.comppressed[4]=true;
+                    } else if (cmpTurn == 6) {
+                        g.button5.setGraphic(DrawPattern.Casexoro());
+                        TicTacToeGui.allMoves[6] = TicTacToeGui.lastmove;
+                        pressed[6] = true;
+                        TicTacToeGui.comppressed[6]=true;
+                    } else if (cmpTurn == 7) {
+                        g.button6.setGraphic(DrawPattern.Casexoro());
+                        TicTacToeGui.allMoves[7] = TicTacToeGui.lastmove;
+                        pressed[7] = true;
+                        TicTacToeGui.comppressed[7]=true;
+
+                    } else if (cmpTurn == 8) {
+                        g.button7.setGraphic(DrawPattern.Casexoro());
+                        TicTacToeGui.allMoves[8] = TicTacToeGui.lastmove;
+                        pressed[8] = true;
+                        TicTacToeGui.comppressed[8]=true;
+                    }
+
+                    TicTacToeGui.win = CheckWin.check();
+
+
+                    TicTacToeGui.comppressed[5]= true;
+                }
             }
         });
         g.button5.addEventHandler(ActionEvent.ACTION, (ActionEvent event) -> {
@@ -467,57 +485,61 @@ public class CheckEvent {
               	 TicTacToeGui.win=CheckWin.check();
             pressed[6] = true;
             }
-            if(TicTacToeGui.comppressed[6]==false){
-            if (!TicTacToeGui.win) {
-                int cmpTurn = computerTurn();
-                if (cmpTurn == 0) {
+            
+            if(TicTacToeGui.singlemode==true)
+            {
+                if(TicTacToeGui.comppressed[6]==false){
+                if (!TicTacToeGui.win) {
+                    int cmpTurn = computerTurn();
+                    if (cmpTurn == 0) {
 
-                    g.button.setGraphic(DrawPattern.Casexoro());
-                    TicTacToeGui.allMoves[0] = TicTacToeGui.lastmove;
-                    pressed[0] = true;
-                    TicTacToeGui.comppressed[0]=true;
-                } else if (cmpTurn == 1) {
-                    g.button0.setGraphic(DrawPattern.Casexoro());
-                    TicTacToeGui.allMoves[1] = TicTacToeGui.lastmove;
-                    pressed[1] = true;
-                    TicTacToeGui.comppressed[1]=true;
-                } else if (cmpTurn == 2) {
-                    g.button1.setGraphic(DrawPattern.Casexoro());
-                    TicTacToeGui.allMoves[2] = TicTacToeGui.lastmove;
-                    pressed[2] = true;
-                    TicTacToeGui.comppressed[2]=true;
-                } else if (cmpTurn == 3) {
-                    g.button2.setGraphic(DrawPattern.Casexoro());
-                    TicTacToeGui.allMoves[3] = TicTacToeGui.lastmove;
-                    pressed[3] = true;
-                    TicTacToeGui.comppressed[3]=true;
-                } else if (cmpTurn == 4) {
-                    g.button3.setGraphic(DrawPattern.Casexoro());
-                    TicTacToeGui.allMoves[4] = TicTacToeGui.lastmove;
-                    pressed[4] = true;
-                    TicTacToeGui.comppressed[4]=true;
-                } else if (cmpTurn == 5) {
-                    g.button4.setGraphic(DrawPattern.Casexoro());
-                    TicTacToeGui.allMoves[5] = TicTacToeGui.lastmove;
-                    pressed[5] = true;
-                    TicTacToeGui.comppressed[5]=true;
-                } else if (cmpTurn == 7) {
-                    g.button6.setGraphic(DrawPattern.Casexoro());
-                    TicTacToeGui.allMoves[7] = TicTacToeGui.lastmove;
-                    pressed[7] = true;
-                    TicTacToeGui.comppressed[7]=true;
+                        g.button.setGraphic(DrawPattern.Casexoro());
+                        TicTacToeGui.allMoves[0] = TicTacToeGui.lastmove;
+                        pressed[0] = true;
+                        TicTacToeGui.comppressed[0]=true;
+                    } else if (cmpTurn == 1) {
+                        g.button0.setGraphic(DrawPattern.Casexoro());
+                        TicTacToeGui.allMoves[1] = TicTacToeGui.lastmove;
+                        pressed[1] = true;
+                        TicTacToeGui.comppressed[1]=true;
+                    } else if (cmpTurn == 2) {
+                        g.button1.setGraphic(DrawPattern.Casexoro());
+                        TicTacToeGui.allMoves[2] = TicTacToeGui.lastmove;
+                        pressed[2] = true;
+                        TicTacToeGui.comppressed[2]=true;
+                    } else if (cmpTurn == 3) {
+                        g.button2.setGraphic(DrawPattern.Casexoro());
+                        TicTacToeGui.allMoves[3] = TicTacToeGui.lastmove;
+                        pressed[3] = true;
+                        TicTacToeGui.comppressed[3]=true;
+                    } else if (cmpTurn == 4) {
+                        g.button3.setGraphic(DrawPattern.Casexoro());
+                        TicTacToeGui.allMoves[4] = TicTacToeGui.lastmove;
+                        pressed[4] = true;
+                        TicTacToeGui.comppressed[4]=true;
+                    } else if (cmpTurn == 5) {
+                        g.button4.setGraphic(DrawPattern.Casexoro());
+                        TicTacToeGui.allMoves[5] = TicTacToeGui.lastmove;
+                        pressed[5] = true;
+                        TicTacToeGui.comppressed[5]=true;
+                    } else if (cmpTurn == 7) {
+                        g.button6.setGraphic(DrawPattern.Casexoro());
+                        TicTacToeGui.allMoves[7] = TicTacToeGui.lastmove;
+                        pressed[7] = true;
+                        TicTacToeGui.comppressed[7]=true;
 
-                } else if (cmpTurn == 8) {
-                    g.button7.setGraphic(DrawPattern.Casexoro());
-                    TicTacToeGui.allMoves[8] = TicTacToeGui.lastmove;
-                    
-                    pressed[8] = true;
-                    TicTacToeGui.comppressed[8]=true;
+                    } else if (cmpTurn == 8) {
+                        g.button7.setGraphic(DrawPattern.Casexoro());
+                        TicTacToeGui.allMoves[8] = TicTacToeGui.lastmove;
+
+                        pressed[8] = true;
+                        TicTacToeGui.comppressed[8]=true;
+                    }
+                    TicTacToeGui.win = CheckWin.check();
+
                 }
-                TicTacToeGui.win = CheckWin.check();
-                
-            }
-                TicTacToeGui.comppressed[6]= true;
+                    TicTacToeGui.comppressed[6]= true;
+                }
             }
         });
          g.button6.addEventHandler(ActionEvent.ACTION, (ActionEvent event) -> {
@@ -528,56 +550,59 @@ public class CheckEvent {
                  TicTacToeGui.win=CheckWin.check();
              pressed[7] = true;
             }
-            if(TicTacToeGui.comppressed[7]==false){
-            if (!TicTacToeGui.win) {
-                int cmpTurn = computerTurn();
+            if(TicTacToeGui.singlemode==true)
+            {
+                if(TicTacToeGui.comppressed[7]==false){
+                if (!TicTacToeGui.win) {
+                    int cmpTurn = computerTurn();
 
-                if (cmpTurn == 0) {
+                    if (cmpTurn == 0) {
 
-                    g.button.setGraphic(DrawPattern.Casexoro());
-                    TicTacToeGui.allMoves[0] = TicTacToeGui.lastmove;
-                    pressed[0] = true;
-                    TicTacToeGui.comppressed[0]=true;
-                } else if (cmpTurn == 1) {
-                    g.button0.setGraphic(DrawPattern.Casexoro());
-                    TicTacToeGui.allMoves[1] = TicTacToeGui.lastmove;
-                    pressed[1] = true;
-                    TicTacToeGui.comppressed[1]=true;
-                } else if (cmpTurn == 2) {
-                    g.button1.setGraphic(DrawPattern.Casexoro());
-                    TicTacToeGui.allMoves[2] = TicTacToeGui.lastmove;
-                    pressed[2] = true;
-                    TicTacToeGui.comppressed[2]=true;
-                } else if (cmpTurn == 3) {
-                    g.button2.setGraphic(DrawPattern.Casexoro());
-                    TicTacToeGui.allMoves[3] = TicTacToeGui.lastmove;
-                    pressed[3] = true;
-                    TicTacToeGui.comppressed[3]=true;
-                } else if (cmpTurn == 4) {
-                    g.button3.setGraphic(DrawPattern.Casexoro());
-                    TicTacToeGui.allMoves[4] = TicTacToeGui.lastmove;
-                    pressed[4] = true;
-                    TicTacToeGui.comppressed[4]=true;
-                } else if (cmpTurn == 5) {
-                    g.button4.setGraphic(DrawPattern.Casexoro());
-                    TicTacToeGui.allMoves[5] = TicTacToeGui.lastmove;
-                    pressed[5] = true;
-                    TicTacToeGui.comppressed[5]=true;
-                } else if (cmpTurn == 6) {
-                    g.button5.setGraphic(DrawPattern.Casexoro());
-                    TicTacToeGui.allMoves[6] = TicTacToeGui.lastmove;
-                    pressed[6] = true;
-                    TicTacToeGui.comppressed[6]=true;
-                } else if (cmpTurn == 8) {
-                    g.button7.setGraphic(DrawPattern.Casexoro());
-                    TicTacToeGui.allMoves[8] = TicTacToeGui.lastmove;
-                    pressed[8] = true;
-                    TicTacToeGui.comppressed[8]=true;
+                        g.button.setGraphic(DrawPattern.Casexoro());
+                        TicTacToeGui.allMoves[0] = TicTacToeGui.lastmove;
+                        pressed[0] = true;
+                        TicTacToeGui.comppressed[0]=true;
+                    } else if (cmpTurn == 1) {
+                        g.button0.setGraphic(DrawPattern.Casexoro());
+                        TicTacToeGui.allMoves[1] = TicTacToeGui.lastmove;
+                        pressed[1] = true;
+                        TicTacToeGui.comppressed[1]=true;
+                    } else if (cmpTurn == 2) {
+                        g.button1.setGraphic(DrawPattern.Casexoro());
+                        TicTacToeGui.allMoves[2] = TicTacToeGui.lastmove;
+                        pressed[2] = true;
+                        TicTacToeGui.comppressed[2]=true;
+                    } else if (cmpTurn == 3) {
+                        g.button2.setGraphic(DrawPattern.Casexoro());
+                        TicTacToeGui.allMoves[3] = TicTacToeGui.lastmove;
+                        pressed[3] = true;
+                        TicTacToeGui.comppressed[3]=true;
+                    } else if (cmpTurn == 4) {
+                        g.button3.setGraphic(DrawPattern.Casexoro());
+                        TicTacToeGui.allMoves[4] = TicTacToeGui.lastmove;
+                        pressed[4] = true;
+                        TicTacToeGui.comppressed[4]=true;
+                    } else if (cmpTurn == 5) {
+                        g.button4.setGraphic(DrawPattern.Casexoro());
+                        TicTacToeGui.allMoves[5] = TicTacToeGui.lastmove;
+                        pressed[5] = true;
+                        TicTacToeGui.comppressed[5]=true;
+                    } else if (cmpTurn == 6) {
+                        g.button5.setGraphic(DrawPattern.Casexoro());
+                        TicTacToeGui.allMoves[6] = TicTacToeGui.lastmove;
+                        pressed[6] = true;
+                        TicTacToeGui.comppressed[6]=true;
+                    } else if (cmpTurn == 8) {
+                        g.button7.setGraphic(DrawPattern.Casexoro());
+                        TicTacToeGui.allMoves[8] = TicTacToeGui.lastmove;
+                        pressed[8] = true;
+                        TicTacToeGui.comppressed[8]=true;
+                    }
+                    TicTacToeGui.win = CheckWin.check();
+
                 }
-                TicTacToeGui.win = CheckWin.check();
-                
-            }
-                TicTacToeGui.comppressed[7]= true;
+                    TicTacToeGui.comppressed[7]= true;
+                }
             }
         });
         g.button7.addEventHandler(ActionEvent.ACTION, (ActionEvent event) -> {
@@ -588,56 +613,59 @@ public class CheckEvent {
                  TicTacToeGui.win=CheckWin.check();
                      pressed[8] = true;
             }
-           if(TicTacToeGui.comppressed[8]==false){
-            if (!TicTacToeGui.win) {
-                int cmpTurn = computerTurn();
-                if (cmpTurn == 0) {
+            if(TicTacToeGui.singlemode==true)
+            {
+                if(TicTacToeGui.comppressed[8]==false){
+                if (!TicTacToeGui.win) {
+                    int cmpTurn = computerTurn();
+                    if (cmpTurn == 0) {
 
-                    g.button.setGraphic(DrawPattern.Casexoro());
-                    TicTacToeGui.allMoves[0] = TicTacToeGui.lastmove;
-                    pressed[0] = true;
-                    TicTacToeGui.comppressed[0]=true;
-                } else if (cmpTurn == 1) {
-                    g.button0.setGraphic(DrawPattern.Casexoro());
-                    TicTacToeGui.allMoves[1] = TicTacToeGui.lastmove;
-                    pressed[1] = true;
-                    TicTacToeGui.comppressed[1]=true;
-                } else if (cmpTurn == 2) {
-                    g.button1.setGraphic(DrawPattern.Casexoro());
-                    TicTacToeGui.allMoves[2] = TicTacToeGui.lastmove;
-                    pressed[2] = true;
-                   TicTacToeGui.comppressed[2]=true;
-                } else if (cmpTurn == 3) {
-                    g.button2.setGraphic(DrawPattern.Casexoro());
-                    TicTacToeGui.allMoves[3] = TicTacToeGui.lastmove;
-                    pressed[3] = true;
-                    TicTacToeGui.comppressed[3]=true;
-                } else if (cmpTurn == 4) {
-                    g.button3.setGraphic(DrawPattern.Casexoro());
-                    TicTacToeGui.allMoves[4] = TicTacToeGui.lastmove;
-                    pressed[4] = true;
-                    TicTacToeGui.comppressed[4]=true;
-                } else if (cmpTurn == 5) {
-                    g.button4.setGraphic(DrawPattern.Casexoro());
-                    TicTacToeGui.allMoves[5] = TicTacToeGui.lastmove;
-                    pressed[5] = true;
-                    TicTacToeGui.comppressed[5]=true;
-                } else if (cmpTurn == 6) {
-                    g.button5.setGraphic(DrawPattern.Casexoro());
-                    TicTacToeGui.allMoves[6] = TicTacToeGui.lastmove;
-                    pressed[6] = true;
-                    TicTacToeGui.comppressed[6]=true;
-                } else if (cmpTurn == 7) {
-                    g.button6.setGraphic(DrawPattern.Casexoro());
-                    TicTacToeGui.allMoves[7] = TicTacToeGui.lastmove;
-                    pressed[7] = true;
-                    TicTacToeGui.comppressed[7]=true;
+                        g.button.setGraphic(DrawPattern.Casexoro());
+                        TicTacToeGui.allMoves[0] = TicTacToeGui.lastmove;
+                        pressed[0] = true;
+                        TicTacToeGui.comppressed[0]=true;
+                    } else if (cmpTurn == 1) {
+                        g.button0.setGraphic(DrawPattern.Casexoro());
+                        TicTacToeGui.allMoves[1] = TicTacToeGui.lastmove;
+                        pressed[1] = true;
+                        TicTacToeGui.comppressed[1]=true;
+                    } else if (cmpTurn == 2) {
+                        g.button1.setGraphic(DrawPattern.Casexoro());
+                        TicTacToeGui.allMoves[2] = TicTacToeGui.lastmove;
+                        pressed[2] = true;
+                       TicTacToeGui.comppressed[2]=true;
+                    } else if (cmpTurn == 3) {
+                        g.button2.setGraphic(DrawPattern.Casexoro());
+                        TicTacToeGui.allMoves[3] = TicTacToeGui.lastmove;
+                        pressed[3] = true;
+                        TicTacToeGui.comppressed[3]=true;
+                    } else if (cmpTurn == 4) {
+                        g.button3.setGraphic(DrawPattern.Casexoro());
+                        TicTacToeGui.allMoves[4] = TicTacToeGui.lastmove;
+                        pressed[4] = true;
+                        TicTacToeGui.comppressed[4]=true;
+                    } else if (cmpTurn == 5) {
+                        g.button4.setGraphic(DrawPattern.Casexoro());
+                        TicTacToeGui.allMoves[5] = TicTacToeGui.lastmove;
+                        pressed[5] = true;
+                        TicTacToeGui.comppressed[5]=true;
+                    } else if (cmpTurn == 6) {
+                        g.button5.setGraphic(DrawPattern.Casexoro());
+                        TicTacToeGui.allMoves[6] = TicTacToeGui.lastmove;
+                        pressed[6] = true;
+                        TicTacToeGui.comppressed[6]=true;
+                    } else if (cmpTurn == 7) {
+                        g.button6.setGraphic(DrawPattern.Casexoro());
+                        TicTacToeGui.allMoves[7] = TicTacToeGui.lastmove;
+                        pressed[7] = true;
+                        TicTacToeGui.comppressed[7]=true;
+
+                    }
+                    TicTacToeGui.win = CheckWin.check();
 
                 }
-                TicTacToeGui.win = CheckWin.check();
-                
-            }
-                TicTacToeGui.comppressed[8]= true;
+                    TicTacToeGui.comppressed[8]= true;
+                }
             }
         });
         g.button11.setGraphic(ViewSound.drawSoundLogo("image/sound.png"));

@@ -25,9 +25,6 @@ public class ViewSound extends TicTacToeGui{
         ViewSound v2 = new ViewSound();
         v2.playSoundtwo();
     }    
-
-   
-
       public void soundtwo(int num){
         if(num == 0){
            // 
@@ -64,6 +61,13 @@ public class ViewSound extends TicTacToeGui{
         ImageView view = new ImageView(logo);
         view.setFitHeight(110);
         view.setFitWidth(600);
+        return view;
+    }
+    static public ImageView reset(){
+        Image logo = new Image(ViewSound.class.getResourceAsStream("image/1.png"));
+        ImageView view = new ImageView(logo);
+        view.setFitHeight(110);
+        view.setFitWidth(90);
         return view;
     }
 
