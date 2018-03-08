@@ -226,7 +226,7 @@ public class FXMLgameBase extends AnchorPane {
         button10.setPrefWidth(138.0);
         button10.getStyleClass().add("rich-blue");
         button10.getStylesheets().add("/tictactoegui/css/modepagecss.css");
-        button10.setText("Save");
+        button10.setText("video");
         button10.setTextFill(javafx.scene.paint.Color.valueOf("#cc0808"));
         button10.setFont(new Font("System Bold", 24.0));
 

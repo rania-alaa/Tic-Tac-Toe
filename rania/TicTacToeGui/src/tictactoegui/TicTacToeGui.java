@@ -34,6 +34,12 @@ import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.stage.Stage;
 import javafx.util.Duration;
+import database.DatabaseHandler;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javafx.animation.KeyFrame;
+import javafx.animation.Timeline;
+import javafx.stage.Modality;
 /**
  *
  * @author rania
@@ -43,39 +49,58 @@ public class TicTacToeGui extends Application {
    protected static String lastmove= "x";//
     //String playerOne = new String("X");
     //String playerTwo = new String("O");
+   
     protected static String[] allMoves=new String[9];
     public static Alert Msg=new Alert(AlertType.INFORMATION);
     public static boolean singlemode=false;
-   public static boolean playermode = false;
-   public static boolean completed=false;
-   public static boolean win = false;
-   protected static boolean[] pressed = new boolean[9];
-   protected static boolean[] comppressed = new boolean[9];
-   public static boolean sound=true;
+    public static boolean playermode = false;
+    public static boolean completed=false;
+    public static boolean win = false;
+    protected static boolean[] pressed = new boolean[9];
+    protected static boolean[] comppressed = new boolean[9];
+    public static boolean sound=true;
     final java.net.URL resource = getClass().getResource("music/soundbg.mp3");
     final Media media = new Media(resource.toString());
     final MediaPlayer mediaplayer = new MediaPlayer(media);
-    Vector<String> playerlist=new Vector<String>(10,1);
-    @Override
-    public void start(Stage primaryStage) throws MalformedURLException {
-        FXMLvideoBase videopage = new FXMLvideoBase();
+   static Vector<String> playerlist=new Vector<String>(10,1);
+    protected static String[] allSteps=new String[9];
+     static String pattern = new String(" ");
+      // static FXMLvideoBase videopage = new FXMLvideoBase();
         FXMLplayer1Base player1page = new FXMLplayer1Base();
         FXMLsymbolBase symbolpage = new FXMLsymbolBase();
         FXMLmodeBase modepage = new FXMLmodeBase();
         FXMLplayerBase playerpage = new FXMLplayerBase();
+        
         FXMLgameBase g = new FXMLgameBase();
+        FXMLplayorwatchBase playorwatchpage = new FXMLplayorwatchBase();
+        FXMLvideolistBase videolistpage = new FXMLvideolistBase();
         Scene player1scene = new Scene(player1page, 700, 600);
         Scene symbolscene = new Scene(symbolpage,700,600);
         Scene modescene = new Scene(modepage, 700, 600);
         Scene playerscene = new Scene(playerpage, 700, 600);
         Scene gamescene = new Scene(g, 700, 600);
-        Scene videoscene = new Scene(videopage,700,600);
+        Scene playorwatchscene = new Scene(playorwatchpage, 700, 600);
+        Scene videolistscene = new Scene(videolistpage, 700, 600);
+        static ViewSound snd = new ViewSound();
+        //Scene videoscene = new Scene(videopage,700,600);
+    @Override
+    public void start(Stage primaryStage) throws MalformedURLException {
+//       try {
+//           DatabaseHandler data = new DatabaseHandler();
+//           String query = "SELECT pid , name  FROM player LIMIT 100;";
+//           data.select(query);
+//       } catch (ClassNotFoundException ex) {
+//           Logger.getLogger(TicTacToeGui.class.getName()).log(Level.SEVERE, null, ex);
+//         // System.out.println("error");
+//       }
+       // VideoEvent.Event(videopage,videoscene);
         Button b[] = {g.button,g.button0,g.button1,g.button2,g.button3,g.button4,g.button5,g.button6,g.button7};
         g.gridPane.setEffect(new DropShadow(15, 0, 15, Color.GREY));
         symbolpage.label.setGraphic(ViewSound.logo());
         player1page.label.setGraphic(ViewSound.logo());
         modepage.label0.setGraphic(ViewSound.logo());
         playerpage.label0.setGraphic(ViewSound.logo());
+        playorwatchpage.label.setGraphic(ViewSound.logo());
         
         playerlist.add("Abd El-Rahman");
         playerlist.add("Enas");
@@ -86,22 +111,33 @@ public class TicTacToeGui extends Application {
         player1page.choiceBox.getItems().addAll(playerlist);
         player1page.choiceBox.setValue(newplayer);
         
+        //next in video list -> videopage -> next close
+        //play button in playorwatchpage
+        playorwatchpage.button.addEventHandler(ActionEvent.ACTION, (ActionEvent event) -> {
+             snd.clickOrSound(0);
+            primaryStage.setScene(symbolscene);
+        });
+        //watch button in playorwatchpage
+        playorwatchpage.button0.addEventHandler(ActionEvent.ACTION, (ActionEvent event) -> {
+             snd.clickOrSound(0);
+            primaryStage.setScene(videolistscene);
+        });
          //x button in symbolscene
         symbolpage.button.addEventHandler(ActionEvent.ACTION, (ActionEvent event) -> {
-             ViewSound.clickOrSound(0);
+             snd.clickOrSound(0);
             lastmove ="o";
             primaryStage.setScene(modescene);
         });
         //o button in symbolscene
         symbolpage.button0.addEventHandler(ActionEvent.ACTION, (ActionEvent event) -> {
-             ViewSound.clickOrSound(0);
+            snd.clickOrSound(0);
             lastmove ="x";
             primaryStage.setScene(modescene);
         });
         
         //next buton in  player1page
         player1page.button.addEventHandler(ActionEvent.ACTION, (ActionEvent event) -> {
-             ViewSound.clickOrSound(0);
+              snd.clickOrSound(0);
              String player1 = player1page.choiceBox.getValue().toString();
             System.out.println(player1);
             if(player1==newplayer){
@@ -113,14 +149,15 @@ public class TicTacToeGui extends Application {
             }
             else{
                 g.text0.setText(player1);
-                 ViewSound.clickOrSound(0);
-                primaryStage.setScene(symbolscene);
+                 snd.clickOrSound(0);
+               // primaryStage.setScene(symbolscene);
+               primaryStage.setScene(playorwatchscene);
             }
         });
         
         //singlebutton
         modepage.button.addEventHandler(ActionEvent.ACTION, (ActionEvent event) -> {
-            ViewSound.clickOrSound(0);
+            snd.clickOrSound(0);
             g.text2.setText("Computer");
             singlemode=true;
             playermode=false;
@@ -128,7 +165,7 @@ public class TicTacToeGui extends Application {
         });
         //2 player button
         modepage.button0.addEventHandler(ActionEvent.ACTION, (ActionEvent event) -> {
-            ViewSound.clickOrSound(0);
+            snd.clickOrSound(0);
             singlemode=false;
             playermode=true;
             primaryStage.setScene(playerscene);
@@ -142,42 +179,56 @@ public class TicTacToeGui extends Application {
                 g.text2.setText(playerpage.textField.getText());
                 primaryStage.setScene(gamescene);
             }
-            ViewSound.clickOrSound(0);
+            snd.clickOrSound(0);
         }); 
         
         //menubutton gamepage
         g.button8.addEventHandler(ActionEvent.ACTION, (ActionEvent event) -> {
-            ViewSound.clickOrSound(0);
+            snd.clickOrSound(0);
            Msg.setContentText("Are you sure you want to exit the game ? you will lose ithe game ");
             Msg.setAlertType(Alert.AlertType.CONFIRMATION);
             Optional<ButtonType> result = Msg.showAndWait();
             if(result.get() == ButtonType.OK){
                 if(sound==false){
                     sound=true;
-                    ViewSound.clickOrSound(1);
+                    snd.clickOrSound(1);
                 }
                 singlemode=false;
                 playermode=false;
                 initGui(b);
-                primaryStage.setScene(modescene);
+                //primaryStage.setScene(modescene);
+                primaryStage.setScene(playorwatchscene);
             }
         }); 
         //resetbutton gamepage
         g.button9.addEventHandler(ActionEvent.ACTION, (ActionEvent event) -> {
-            ViewSound.clickOrSound(0);
+            snd.clickOrSound(0);
             Msg.setContentText("Are you sure you want to reset the game ? ");
             Msg.setAlertType(Alert.AlertType.CONFIRMATION);
             Optional<ButtonType> result = Msg.showAndWait();
             if(result.get() == ButtonType.OK){
                initGui(b);
             }
-        }); 
+        });
+        //savebutton gamepage
+        g.button10.addEventHandler(ActionEvent.ACTION, (ActionEvent event) -> {
+            snd.clickOrSound(0);
+            Msg.setContentText("Are you sure you want to save the game ? ");
+            Msg.setAlertType(Alert.AlertType.CONFIRMATION);
+            Optional<ButtonType> result = Msg.showAndWait();
+            if(result.get() == ButtonType.OK){
+               initGui(b);
+                //VideoEvent.Event(primaryStage);
+                VideoEvent vdo = new VideoEvent();
+                vdo.Event();
+            }
+        });
        DrawPattern.initializeMovesArr();
        DrawPattern.initializePressedArr();
        DrawPattern.initializeCompPressedArr();
         Msg.setTitle("Winner Message");
         Msg.setHeaderText(null);
-        ViewSound.clickOrSound(1);
+        snd.clickOrSound(1);
         CheckEvent.putEvent(g);
         primaryStage.setTitle("TicTacToe");
         primaryStage.setScene(player1scene);
@@ -201,7 +252,53 @@ public class TicTacToeGui extends Application {
                 completed=false;
                 win = false;
    }
-     
+    
+//   public class VideoEvent {
+//     String pattern = new String("158x");
+//     Stage videowindow=new Stage();
+//     int index;
+//     String move;
+//     int i=0;
+//     FXMLvideoBase videopage = new FXMLvideoBase();
+//     Scene videoscene = new Scene(videopage,700,600);
+//     Button b[]={videopage.button,videopage.button0,videopage.button1,videopage.button2,
+//            videopage.button3,videopage.button4,videopage.button5,videopage.button6,videopage.button7};
+//    public  void Event(Stage primaryStage){
+//       // pattern = TicTacToeGui.pattern;
+//        pattern ="158x";
+//        move =pattern.substring(pattern.length() - 1);
+//        videowindow.initModality(Modality.APPLICATION_MODAL);
+//        videowindow.setTitle("game video");
+//        videowindow.setScene(videoscene);
+//        videowindow.show();
+//        videopage.button9.addEventHandler(ActionEvent.ACTION, (ActionEvent event) -> {
+//                ViewSound.clickOrSound(0);
+//        });        
+//        videopage.button8.addEventHandler(ActionEvent.ACTION, (ActionEvent event) -> {
+//            ViewSound.clickOrSound(0);              
+//            Timeline fiveSecondsWonder = new Timeline(new KeyFrame(Duration.seconds(2), new EventHandler<ActionEvent>() {
+//            @Override
+//            public void handle(ActionEvent event) {
+//            index=Integer.parseInt(pattern.substring(i, i+1));
+//            if( "x".equals(move)){
+//                TicTacToeGui.lastmove="o";
+//                move="o";
+//            } 
+//            else{
+//                TicTacToeGui.lastmove="x";
+//                move="x";
+//            }   
+//            b[index].setGraphic(DrawPattern.Casexoro());
+//            i++;
+//            }
+//        }));
+//        fiveSecondsWonder.setCycleCount(Timeline.INDEFINITE);
+//        if(i<pattern.length()-1){fiveSecondsWonder.play();}
+//        else {fiveSecondsWonder.stop();}
+//        });
+//    } 
+//}
+  
    
    
     /**

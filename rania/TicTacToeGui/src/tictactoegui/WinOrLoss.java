@@ -31,7 +31,8 @@ public class WinOrLoss extends PopUp {
         popupwindow.setScene(winorlossscene);
         winorlosspage.button.addEventHandler(ActionEvent.ACTION, (ActionEvent event) -> {
             popupwindow.close();
-            
+            VideoEvent vdo = new VideoEvent();
+            vdo.Event();            
        // open video window         
         });
         popupwindow.showAndWait();

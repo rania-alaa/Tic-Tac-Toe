@@ -77,7 +77,6 @@ public class CheckEvent {
                             System.out.println(randomNum);
                         }
                     }
-
                 }
             }
         }
@@ -671,16 +670,16 @@ public class CheckEvent {
         g.button11.setGraphic(ViewSound.drawSoundLogo("image/sound.png"));
         g.button11.addEventHandler(ActionEvent.ACTION, (ActionEvent event) -> {
            if(ViewSound.sound==true){
-               ViewSound.clickOrSound(0);
+               TicTacToeGui.snd.clickOrSound(0);
                g.button11.setGraphic(ViewSound.drawSoundLogo("image/nosound.png"));
                ViewSound.sound=false;
-               ViewSound.playSound();
+              TicTacToeGui.snd.playSound();
            }
            else{
-               ViewSound.clickOrSound(0);
+               TicTacToeGui.snd.clickOrSound(0);
                g.button11.setGraphic(ViewSound.drawSoundLogo("image/sound.png"));
                ViewSound.sound=true;
-               ViewSound.playSound();
+               TicTacToeGui.snd.playSound();
            }
         });
     }

@@ -72,7 +72,7 @@
             <Font name="System Bold" size="24.0" />
          </font>
       </Button>
-      <Button layoutX="14.0" layoutY="337.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="138.0" styleClass="rich-blue" stylesheets="@css/modepagecss.css" text="Save" textFill="#cc0808">
+      <Button layoutX="14.0" layoutY="337.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="138.0" styleClass="rich-blue" stylesheets="@css/modepagecss.css" text="video" textFill="#cc0808">
          <font>
             <Font name="System Bold" size="24.0" />
          </font>
